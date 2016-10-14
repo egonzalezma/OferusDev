@@ -23,7 +23,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # A simple HTTP and REST client for Ruby, inspired style of specifying actions: get, put, post, delete.
 gem 'rest-client', '~> 2.0'
-
+# Gem to manage json files
+gem 'json', '~> 1.8', '>= 1.8.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

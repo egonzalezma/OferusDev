@@ -24,4 +24,12 @@ Migrate info:
 
 Creando un modulo de carga (*)
 * rails generate scaffold Data
+ - Se esta probando con json locales, se modifica el path dependiendo del equipo en el archivo data_controller.rb
+ - Lestura de joson
+ 
+* Para producto se almacenara (ID produco e ID clientes)
+- rails generate migration add_id_product_client_to_product id_product_client:string
+- rails generate migration add_id_client_to_client_to_client id_client_to_client:string
 
+Tiempo carga de 10000 productos 10 minutos (Equipo Elias)
+Tiempo carga de 80000 clientes en 4 minutos (Equipo Elias)
