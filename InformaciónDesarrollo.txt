@@ -1,2 +1,27 @@
 Información de codificación:
 - Creacion de entidades base con scafolding
+* rails generate scaffold Client::Report
+* rails generate scaffold Client
+* rails generate scaffold Office::Report
+* rails generate scaffold Office
+* rails generate scaffold Product::Brand
+* rails generate scaffold Product
+* rails generate scaffold Sale::Flow
+* rails generate scaffold Sale::Note
+* rails generate scaffold Sale
+* rails generate scaffold Team::Report
+* rails generate scaffold Team
+* rails generate scaffold User::Report
+* rails generate scaffold User
+* rails generate scaffold Comune
+* rails generate scaffold Quotation
+* rails generate scaffold Region
+* rails generate scaffold Role
+
+Migrate info:
+* rake db:migrate // Migrar base de datos
+* rake db:create // Crear base de datos
+
+Creando un modulo de carga (*)
+* rails generate scaffold Data
+
