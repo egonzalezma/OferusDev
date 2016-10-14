@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Client Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_reports.each do |client_report| %>
+      <tr>
+        <td><%= link_to 'Show', client_report %></td>
+        <td><%= link_to 'Edit', edit_client_report_path(client_report) %></td>
+        <td><%= link_to 'Destroy', client_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Report', new_client_report_path %>

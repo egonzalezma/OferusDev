@@ -1,0 +1,1 @@
+json.partial! "sale_flows/sale_flow", sale_flow: @sale_flow

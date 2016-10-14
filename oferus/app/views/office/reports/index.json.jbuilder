@@ -1,0 +1,1 @@
+json.array! @office_reports, partial: 'office_reports/office_report', as: :office_report

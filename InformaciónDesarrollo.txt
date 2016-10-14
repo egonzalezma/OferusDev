@@ -1,0 +1,2 @@
+Información de codificación:
+- Creacion de entidades base con scafolding

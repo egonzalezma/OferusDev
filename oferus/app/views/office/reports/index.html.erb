@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Office Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @office_reports.each do |office_report| %>
+      <tr>
+        <td><%= link_to 'Show', office_report %></td>
+        <td><%= link_to 'Edit', edit_office_report_path(office_report) %></td>
+        <td><%= link_to 'Destroy', office_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Report', new_office_report_path %>

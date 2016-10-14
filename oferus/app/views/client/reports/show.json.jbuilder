@@ -1,0 +1,1 @@
+json.partial! "client_reports/client_report", client_report: @client_report

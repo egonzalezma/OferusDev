@@ -1,0 +1,1 @@
+json.partial! "office_reports/office_report", office_report: @office_report
