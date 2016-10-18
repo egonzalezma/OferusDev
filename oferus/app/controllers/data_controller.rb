@@ -13,13 +13,47 @@ class DataController < ApplicationController
   # GET /data
   # GET /data.json
   def index
-    @data = Datum.all
-    @data_client = RestClient.get(API_BASE_URL_CLIENT)
-    @data_product = RestClient.get(API_BASE_URL_PRODUCT)
-    @data_sale_note = RestClient.get(API_BASE_URL_SALE_NOTE)
-    # @data_products = self.save_from_erp_product(nil)
-    @data_clients = self.save_from_erp_client(nil)
-    @data = @data_clients
+    @client_erp_successful = false;
+    @product_erp_successful = false;
+    @client_successful = false;
+    @product_successful = false;
+
+    ## Codigo de carga cliente
+    begin
+      @data_client = RestClient.get(API_BASE_URL_CLIENT_ALL)
+      @data_clients = self.save_from_erp_client(@data_client)
+      @client_erp_successful = true
+    rescue => ex
+      logger.error ex.message
+      @data_clients = self.save_from_erp_client(nil)
+      @client_successful = true
+    end
+    
+    ## Codigo de carga producto
+    begin
+      @data_product = RestClient.get(API_BASE_URL_PRODUCT_ALL)
+      @data_products = self.save_from_erp_product(@data_product)
+      @product_erp_successful = true
+    rescue => ex
+      logger.error ex.message
+      @data_products = self.save_from_erp_product(nil)
+      @product_successful = true
+    end
+    
+    ## Mensaje de salida
+    @mensaje = ""
+    if @client_successful 
+      @mensaje = @mensaje + "Clientes cargados exitosamente desde archivo\n"
+    elsif @client_erp_successful
+      @mensaje = @mensaje + "Clientes cargados exitosamente desde ERP\n"
+    end
+
+    if @product_successful
+      @mensaje = @mensaje + "Productos cargados exitosamente desde archivo\n"
+    elsif @product_erp_successful
+      @mensaje = @mensaje + "Productos cargados exitosamente desde ERP\n"
+    end
+      
   end
 
   # GET /data/1
@@ -89,7 +123,18 @@ class DataController < ApplicationController
 
     data_hash_clients.each do |client|
       @client = Client.new
-      @client.id_client_to_client = client["ad_addr"]
+      @client.client_unique_number = client["ad_addr"]
+      @client.client_rut = client["ad_pst_id"]
+      @client.client_name1 = client["ad_name"]
+      @client.client_name2 = client["ad_line1"]
+      @client.client_address1 = client["ad_line2"]
+      @client.client_address2 = client["ad_line3"]
+      @client.client_city = client["ad_city"]
+      @client.client_phone = client["ad_phone"]
+      @client.client_fax = client["ad_fax"]
+      @client.client_cell_phone = client["ad_ref"]
+      @client.client_web_site = client["ad_attn2"]
+      @client.domain = client["ad_domain"]
       @client.save
     end
 
@@ -108,7 +153,18 @@ class DataController < ApplicationController
 
     data_hash_products.each do |product|
       @product = Product.new
-      @product.id_product_client = product["pt_part"]
+      @product.product_name1 = product["pt_desc1"]
+      @product.product_name2 = product["pt_desc2"]
+      @product.product_unit_of_measurement = product["pt_um"]
+      @product.product_stock_keeping_unit = product["pt_article"]
+      @product.product_line = product["pt_prod_line"]
+      @product.product_group = product["pt_user1"]
+      @product.product_type = product["pt_part_type"]
+      @product.product_cellar_location = product["pt_loc"]
+      @product.product_normal_price = product["pt_price"]
+      @product.product_branch_office = product["pt_site"]
+      @product.product_stock = product["pt__qad01"]
+      @product.domain = product["pt_domain"]
       @product.save
     end
 

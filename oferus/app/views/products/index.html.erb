@@ -13,7 +13,21 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.id%></td>
-        <td><%= product.id_product_client%></td>
+        <td><%= product.product_name1%></td>
+        <td><%= product.product_name2%></td>
+        <td><%= product.product_name3%></td>
+        <td><%= product.product_unit_of_measurement%></td>
+        <td><%= product.product_stock_keeping_unit%></td>
+        <td><%= product.product_line%></td> 
+        <td><%= product.product_group%></td>
+        <td><%= product.product_type%></td>
+        <td><%= product.product_cellar_location%></td>
+        <td><%= product.product_normal_price%></td>
+        <td><%= product.product_branch_office%></td>
+        <td><%= product.product_stock%></td>
+        <td><%= product.domain%></td>
+        <td><%= product.created_at%></td>
+        <td><%= product.updated_at%></td>           
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

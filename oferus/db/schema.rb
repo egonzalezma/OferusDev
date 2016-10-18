@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014222947) do
+ActiveRecord::Schema.define(version: 20161018150558) do
 
   create_table "client_reports", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,9 +19,20 @@ ActiveRecord::Schema.define(version: 20161014222947) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "id_client_to_client", limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "client_unique_number", limit: 255
+    t.string   "client_rut",           limit: 255
+    t.string   "client_name1",         limit: 255
+    t.string   "client_name2",         limit: 255
+    t.string   "client_address1",      limit: 255
+    t.string   "client_address2",      limit: 255
+    t.string   "client_city",          limit: 255
+    t.string   "client_phone",         limit: 255
+    t.string   "client_fax",           limit: 255
+    t.string   "client_cell_phone",    limit: 255
+    t.string   "client_web_site",      limit: 255
+    t.string   "domain",               limit: 255
   end
 
   create_table "comunes", force: :cascade do |t|
@@ -50,9 +61,21 @@ ActiveRecord::Schema.define(version: 20161014222947) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "id_product_client", limit: 255
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "product_name1",               limit: 255
+    t.string   "product_name2",               limit: 255
+    t.string   "product_name3",               limit: 255
+    t.string   "product_unit_of_measurement", limit: 255
+    t.string   "product_stock_keeping_unit",  limit: 255
+    t.string   "product_line",                limit: 255
+    t.string   "product_group",               limit: 255
+    t.string   "product_type",                limit: 255
+    t.string   "product_cellar_location",     limit: 255
+    t.decimal  "product_normal_price",                    precision: 10
+    t.string   "product_branch_office",       limit: 255
+    t.decimal  "product_stock",                           precision: 10
+    t.string   "domain",                      limit: 255
   end
 
   create_table "quotations", force: :cascade do |t|

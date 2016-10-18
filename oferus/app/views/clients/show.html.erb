@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
-<%= @client.id%>
-<%= @client.id_client_to_client%>
+<%=@client.id%>
+<%=@client.client_unique_number%>
+<%=@client.client_rut%>
+<%=@client.client_name1%>
+<%=@client.client_name2%>
+<%=@client.client_address1%>
+<%=@client.client_address2%>
+<%=@client.client_city%>
+<%=@client.client_phone%>
+<%=@client.client_fax%>
+<%=@client.client_cell_phone%>
+<%=@client.client_web_site%>
+<%=@client.domain%>
+<%=@client.created_at%>
+<%=@client.updated_at%>
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

@@ -27,9 +27,13 @@ Creando un modulo de carga (*)
  - Se esta probando con json locales, se modifica el path dependiendo del equipo en el archivo data_controller.rb
  - Lestura de joson
  
-* Para producto se almacenara (ID produco e ID clientes)
-- rails generate migration add_id_product_client_to_product id_product_client:string
-- rails generate migration add_id_client_to_client_to_client id_client_to_client:string
-
 Tiempo carga de 10000 productos 10 minutos (Equipo Elias)
 Tiempo carga de 80000 clientes en 4 minutos (Equipo Elias)
+
+* Agrego resto de datos Itaka
+* Productos
+rails generate migration add_attribute_client_to_product  product_name1:string product_name2:string product_name3:string product_unit_of_measurement:string product_stock_keeping_unit:string product_line:string product_group:string product_type:string product_cellar_location:string product_normal_price:decimal product_branch_office:string product_stock:decimal domain:string
+
+* Clientes
+rails generate migration add_attribute_to_client client_unique_number:string client_rut:string client_name1:string client_name2:string client_address1:string client_address2:string client_city:string client_phone:string client_fax:string client_cell_phone:string client_web_site:string domain:string
+
