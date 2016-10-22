@@ -12,5 +12,7 @@ json.extract! product, :id,
 					   :product_branch_office, 
 					   :product_stock,
 					   :domain,
+					   :product_identifier,
+					   :product_minimum_price,
 					   :created_at, :updated_at
 json.url product_url(product, format: :json)

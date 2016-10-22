@@ -37,3 +37,10 @@ rails generate migration add_attribute_client_to_product  product_name1:string p
 * Clientes
 rails generate migration add_attribute_to_client client_unique_number:string client_rut:string client_name1:string client_name2:string client_address1:string client_address2:string client_city:string client_phone:string client_fax:string client_cell_phone:string client_web_site:string domain:string
 
+Agregar nuevos atributos
+rails generate migration add_attribute_client_to_product  product_identifier:string product_minimum_price:decimal
+
+rails generate migration add_attribute2_to_client client_type1:string client_type2:string
+
+
+

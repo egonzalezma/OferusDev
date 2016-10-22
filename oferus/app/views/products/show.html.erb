@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 	<%= @product.id%>
+        <%= @product.product_identifier%>
         <%= @product.product_name1%>
         <%= @product.product_name2%>
         <%= @product.product_name3%>
@@ -10,10 +11,15 @@
         <%= @product.product_type%>
         <%= @product.product_cellar_location%>
         <%= @product.product_normal_price%>
+        <%= @product.product_minimum_price%>
         <%= @product.product_branch_office%>
         <%= @product.product_stock%>
         <%= @product.domain%>
         <%= @product.created_at%>
         <%= @product.updated_at%>  
+
+        <p>Particular product json: </p>
+        <%= Product.find_by(:product_identifier, @product.product_identifier)%>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

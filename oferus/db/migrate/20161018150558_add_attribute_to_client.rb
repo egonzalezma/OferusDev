@@ -12,5 +12,7 @@ class AddAttributeToClient < ActiveRecord::Migration
     add_column :clients, :client_cell_phone, :string
     add_column :clients, :client_web_site, :string
     add_column :clients, :domain, :string
+    add_column :clients, :client_type1, :string
+    add_column :clients, :client_type2, :string
   end
 end

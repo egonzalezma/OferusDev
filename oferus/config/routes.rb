@@ -1,35 +1,44 @@
 Rails.application.routes.draw do
   resources :data
+  
   namespace :sale do
     resources :flows
   end
+  
   namespace :product do
     resources :brands
   end
+  
   namespace :client do
     resources :reports
   end
+  
   namespace :user do
     resources :reports
   end
+  
   namespace :team do
     resources :reports
   end
+  
   namespace :office do
     resources :reports
   end
   resources :roles
   resources :comunes
   resources :regions
+  
   namespace :sale do
     resources :notes
   end
+  
   resources :teams
   resources :offices
   resources :quotations
   resources :products
   resources :clients
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

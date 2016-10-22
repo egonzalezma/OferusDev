@@ -13,5 +13,7 @@ class AddAttributeClientToProduct < ActiveRecord::Migration
     add_column :products, :product_branch_office, :string
     add_column :products, :product_stock, :decimal
     add_column :products, :domain, :string
+    add_column :products, :product_identifier, :string
+    add_column :products, :product_minimum_price, :decimal
   end
 end

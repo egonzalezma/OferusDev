@@ -12,7 +12,13 @@
 <%=@client.client_cell_phone%>
 <%=@client.client_web_site%>
 <%=@client.domain%>
+<%=@client.client_type1%>
+<%=@client.client_type2%>
 <%=@client.created_at%>
 <%=@client.updated_at%>
+
+<p>Particular client json: </p>
+<%= Client.find_by(:client_unique_number, @client.client_unique_number)%>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

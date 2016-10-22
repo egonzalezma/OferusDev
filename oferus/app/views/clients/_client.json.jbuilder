@@ -11,5 +11,7 @@ json.extract! client, :id,
 					  :client_cell_phone,
 					  :client_web_site,
 					  :domain,
+					  :client_type1,
+					  :client_type2,
 					  :created_at, :updated_at
 json.url client_url(client, format: :json)

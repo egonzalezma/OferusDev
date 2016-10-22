@@ -13,6 +13,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.id%></td>
+        <td><%= product.product_identifier%></td>
         <td><%= product.product_name1%></td>
         <td><%= product.product_name2%></td>
         <td><%= product.product_name3%></td>
@@ -23,6 +24,7 @@
         <td><%= product.product_type%></td>
         <td><%= product.product_cellar_location%></td>
         <td><%= product.product_normal_price%></td>
+        <td><%= product.product_minimum_price%></td>
         <td><%= product.product_branch_office%></td>
         <td><%= product.product_stock%></td>
         <td><%= product.domain%></td>
