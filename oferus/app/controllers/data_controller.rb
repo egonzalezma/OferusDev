@@ -12,7 +12,7 @@ class DataController < ApplicationController
 
     ## Codigo de carga cliente
     begin
-      @data_client = RestClient.get(Datum::API_BASE_URL_CLIENT_ALL)
+      @data_client = Client.get_all_clients()
       @data_clients = Client.save_from_erp_client(@data_client)
       @client_erp_successful = true
     rescue => ex
@@ -23,7 +23,7 @@ class DataController < ApplicationController
     
     ## Codigo de carga producto
     begin
-     @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL)
+     @data_product = Product.get_all_products()
      data_products = Product.save_from_erp_product(@data_product)
      @product_erp_successful = true
     rescue => ex

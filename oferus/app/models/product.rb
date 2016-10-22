@@ -89,7 +89,12 @@ Products_hash = { :product_identifier => "pt_part",
 
   def self.find_by(attribute, value)
     att = Products_hash[attribute]
-    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"")
+    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
+    return @data_product
+  end
+
+  def self.get_all_products()
+    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL).force_encoding("utf-8")
     return @data_product
   end
 
