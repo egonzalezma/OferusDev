@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :clients
   resources :users
 
+  resources :post_sale_notes
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
