@@ -89,7 +89,7 @@ Products_hash = { :product_identifier => "pt_part",
 
   def self.find_by(attribute, value)
     att = Products_hash[attribute]
-    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
+    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"="+value+"").force_encoding("utf-8")
     return @data_product
   end
 
@@ -97,7 +97,39 @@ Products_hash = { :product_identifier => "pt_part",
     @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL).force_encoding("utf-8")
     return @data_product
   end
+  
+  # ARREGLAR
+  def self.create_product(product)
+    payload  =  {:request => { :name => "dspt_mstr",
+                               :type => {:dspt_mstr => 
+                                          {:ttpt_mstr => [{
+                                             :pt_part => "101001",
+                                             :pt_desc1 => "CORTADORA PANELVERTICAL",
+                                             :pt_desc2 => "C4- EX  SAW SAFETY",
+                                             :pt_um => "PZ",
+                                             :pt_article => "7809824004415",
+                                             :pt_prod_line => "SAFM",
+                                             :pt_user1 => "OTROS",
+                                             :pt_part_type => "SAFE002",
+                                             :pt_loc => "CDIT1001",
+                                             :pt_price => 1849420.0,
+                                             :pt_minpr => 1294594.0,
+                                             :pt_site => "2000",
+                                             :pt_domain => "ITAKA",
+                                             :pt__qad01 => 2.0,
+                                             :oid_pt_mstr => 0.0}]
+                                           }
+                                         }
+                            }
+               }
 
+    payload  =   payload[:request].to_json   
+    Rails.logger.info "Payload: #{payload}"
+
+    response = RestClient.post(Datum::API_BASE_URL_PRODUCT, payload , {content_type: :json, accept: :json})
+   
+    return payload
+   end
 ####################  END ERP CLIENT CONFIG ############################
 
 end
