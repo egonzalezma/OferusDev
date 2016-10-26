@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.page(params[:page]).per(15)
   end
 
   # GET /clients/1
@@ -69,6 +69,19 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.fetch(:client, {})
+      params.require(:client).permit( :client_unique_number,
+                                      :client_rut,
+                                      :client_name1,
+                                      :client_name2,
+                                      :client_address1,
+                                      :client_address2,
+                                      :client_city,
+                                      :client_phone,
+                                      :client_fax,
+                                      :client_cell_phone,
+                                      :client_web_site,
+                                      :domain,
+                                      :client_type1,
+                                      :client_type2)
     end
 end

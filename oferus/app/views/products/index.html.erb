@@ -1,43 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Products</h1>
+<h1>Lista de productos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <table class="striped responsive-table centered">
+          <thead>
+            <tr>
+                <th><%=:id%></th>
+                <th><%=:product_identifier%></th>
+                <th><%=:product_name1%></th>
+                <th><%=:product_name2%></th>
+                <th><%=:product_unit_of_measurement%></th>
+                <th><%=:product_stock_keeping_unit%></th>
+                <th><%=:product_line%></th>
+                <th><%=:product_group%></th>
+                <th><%=:product_type%></th>
+                <th><%=:product_cellar_location%></th>
+                <th><%=:product_normal_price%></th>
+                <th><%=:product_minimum_price%></th>
+                <th><%=:product_branch_office%></th>
+                <th><%=:product_stock%></th>
+                <th><%=:domain%></th>
+                <th><%=:created_at%></th>
+                <th><%=:updated_at%></th>  
+                <th colspan="17"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id%></td>
-        <td><%= product.product_identifier%></td>
-        <td><%= product.product_name1%></td>
-        <td><%= product.product_name2%></td>
-        <td><%= product.product_name3%></td>
-        <td><%= product.product_unit_of_measurement%></td>
-        <td><%= product.product_stock_keeping_unit%></td>
-        <td><%= product.product_line%></td> 
-        <td><%= product.product_group%></td>
-        <td><%= product.product_type%></td>
-        <td><%= product.product_cellar_location%></td>
-        <td><%= product.product_normal_price%></td>
-        <td><%= product.product_minimum_price%></td>
-        <td><%= product.product_branch_office%></td>
-        <td><%= product.product_stock%></td>
-        <td><%= product.domain%></td>
-        <td><%= product.created_at%></td>
-        <td><%= product.updated_at%></td>           
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td><%= product.id%></td>
+                <td><%= product.product_identifier%></td>
+                <td><%= product.product_name1%></td>
+                <td><%= product.product_name2%></td>
+                <td><%= product.product_unit_of_measurement%></td>
+                <td><%= product.product_stock_keeping_unit%></td>
+                <td><%= product.product_line%></td> 
+                <td><%= product.product_group%></td>
+                <td><%= product.product_type%></td>
+                <td><%= product.product_cellar_location%></td>
+                <td><%= product.product_normal_price%></td>
+                <td><%= product.product_minimum_price%></td>
+                <td><%= product.product_branch_office%></td>
+                <td><%= product.product_stock%></td>
+                <td><%= product.domain%></td>
+                <td><%= product.created_at%></td>
+                <td><%= product.updated_at%></td>           
+                <td><%= link_to 'Show', product %></td>
+                <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @products , :window => 2, :left => 1, :right => 3 %>
 
 <br>
-
 <%= link_to 'New Product', new_product_path %>
+

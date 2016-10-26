@@ -1,0 +1,129 @@
+{
+    "version": "1.2",
+    "lastModified": "Sun Oct 16 16:10:43 CLST 2016",
+    "services": [{
+        "name": "ClienteService",
+        "address": "\/rest\/ClienteService",
+        "useRequest": true,
+        "resources": [{
+            "name": "admstr",
+            "path": "\/admstr",
+            "autoSave": true,
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {"dsad_mstr": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"ttad_mstr": {
+                        "type": "array",
+                        "primaryKey": [
+                            "ad_domain",
+                            "ad_addr"
+                        ],
+                        "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {"type": "string"},
+                                "_errorString": {"type": "string"},
+                                "ad_domain": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Dominio",
+                                    "required": true
+                                },
+                                "ad_addr": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Codigo Unico Cliente"
+                                },
+                                "ad_pst_id": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Rut",
+                                    "required": true
+                                },
+                                "ad_name": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Nombre"
+                                },
+                                "ad_line1": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Nombre2"
+                                },
+                                "ad_line2": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Direcion "
+                                },
+                                "ad_line3": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Direcion 2"
+                                },
+                                "ad_city": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Ciudad"
+                                },
+                                "ad_phone": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Telefono"
+                                },
+                                "ad_fax": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "ad_fax"
+                                },
+                                "ad_ref": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Celular"
+                                },
+                                "ad_attn2": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Web Site"
+                                },
+                                "ad_misc1_id": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Det tipo cliente"
+                                },
+                                "ad_misc2_id": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Det tipo cliente2"
+                                }
+                            }
+                        }
+                    }}
+                }}
+            },
+            "operations": [{
+                "path": "?filter={filter}",
+                "useBeforeImage": false,
+                "type": "read",
+                "verb": "get",
+                "params": []
+            }]
+        }]
+    }]
+}

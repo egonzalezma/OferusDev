@@ -25,6 +25,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rest-client', '~> 2.0'
 # Gem to manage json files
 gem 'json', '~> 1.8', '>= 1.8.3'
+# is a Sass powered version of Materialize, a modern responsive front-end framework based on Material Design.
+gem 'materialize-sass'
+# Central point to collect locale data for use in Ruby on Rails.
+gem 'rails-i18n', '~> 4.0.0'
+# Gema para paginación 
+gem 'kaminari'
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

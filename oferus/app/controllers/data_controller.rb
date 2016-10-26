@@ -46,8 +46,7 @@ class DataController < ApplicationController
       @message = @message + "Productos cargados exitosamente desde ERP\n"
     end
 
-    return @message
-      
+    return @message  
   end
 
   # GET /data/1

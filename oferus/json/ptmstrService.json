@@ -1,0 +1,162 @@
+{
+    "version": "1.2",
+    "lastModified": "Sun Oct 16 16:15:44 CLST 2016",
+    "services": [{
+        "name": "ptmstrService",
+        "address": "\/rest\/ptmstrService",
+        "useRequest": true,
+        "resources": [{
+            "name": "ptmstr",
+            "path": "\/ptmstr",
+            "autoSave": true,
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {"dspt_mstr": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"ttpt_mstr": {
+                        "type": "array",
+                        "primaryKey": [
+                            "pt_domain",
+                            "pt_part"
+                        ],
+                        "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {"type": "string"},
+                                "_errorString": {"type": "string"},
+                                "pt_part": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "No.Unico de Producto",
+                                    "required": true
+                                },
+                                "pt_desc1": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Nombre Producto1"
+                                },
+                                "pt_desc2": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Nombre Producto2"
+                                },
+                                "pt_um": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "EA",
+                                    "title": "Unidad"
+                                },
+                                "pt_article": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "SKU"
+                                },
+                                "pt_prod_line": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Linea Produto"
+                                },
+                                "pt_user1": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Grupo"
+                                },
+                                "pt_part_type": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Tipo Producto"
+                                },
+                                "pt_loc": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Ubicacion Bodega"
+                                },
+                                "pt_price": {
+                                    "type": "number",
+                                    "ablType": "DECIMAL",
+                                    "default": 0,
+                                    "title": "Precio"
+                                },
+                                "pt_site": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Sucursal"
+                                },
+                                "pt_domain": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Dominio",
+                                    "required": true
+                                },
+                                "pt__qad01": {
+                                    "type": "number",
+                                    "ablType": "DECIMAL",
+                                    "default": 0,
+                                    "title": "Stock"
+                                },
+                                "oid_pt_mstr": {
+                                    "type": "number",
+                                    "ablType": "DECIMAL",
+                                    "default": 0,
+                                    "title": "oid_pt_mstr",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }}
+                }}
+            },
+            "operations": [
+                {
+                    "path": "?filter={filter}",
+                    "useBeforeImage": false,
+                    "type": "read",
+                    "verb": "get",
+                    "params": []
+                },
+                {
+                    "path": "",
+                    "useBeforeImage": false,
+                    "type": "create",
+                    "verb": "post",
+                    "params": [{
+                        "name": "dspt_mstr",
+                        "type": "REQUEST_BODY"
+                    }]
+                },
+                {
+                    "path": "",
+                    "useBeforeImage": false,
+                    "type": "delete",
+                    "verb": "delete",
+                    "params": [{
+                        "name": "dspt_mstr",
+                        "type": "REQUEST_BODY"
+                    }]
+                },
+                {
+                    "path": "",
+                    "useBeforeImage": false,
+                    "type": "update",
+                    "verb": "put",
+                    "params": [{
+                        "name": "dspt_mstr",
+                        "type": "REQUEST_BODY"
+                    }]
+                }
+            ]
+        }]
+    }]
+}

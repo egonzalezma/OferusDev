@@ -30,9 +30,6 @@ class Product < ActiveRecord::Base
 
 
 
-
-
-
 ####################  BEGIN ERP CLIENT CONFIG ############################
 
 PATH_JSON_FILE_PRODUCT = Datum::PATH_JSON_FILE_PRODUCT
@@ -89,7 +86,7 @@ Products_hash = { :product_identifier => "pt_part",
 
   def self.find_by(attribute, value)
     att = Products_hash[attribute]
-    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"="+value+"").force_encoding("utf-8")
+    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
     return @data_product
   end
 

@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
-	<%= @product.id%>
-        <%= @product.product_identifier%>
-        <%= @product.product_name1%>
-        <%= @product.product_name2%>
-        <%= @product.product_name3%>
-        <%= @product.product_unit_of_measurement%>
-        <%= @product.product_stock_keeping_unit%>
-        <%= @product.product_line%> 
-        <%= @product.product_group%>
-        <%= @product.product_type%>
-        <%= @product.product_cellar_location%>
-        <%= @product.product_normal_price%>
-        <%= @product.product_minimum_price%>
-        <%= @product.product_branch_office%>
-        <%= @product.product_stock%>
-        <%= @product.domain%>
-        <%= @product.created_at%>
-        <%= @product.updated_at%>  
 
-        <p>Particular product json: </p>
+<p> <strong>ID: </strong> <%= @product.id%> </p>
+<p> <strong>Identificador de producto: </strong> <%= @product.product_identifier%> </p>
+<p> <strong>Nombre producto: </strong> <%= @product.product_name1%> </p>
+<p> <strong>Nombre2 producto: </strong> <%= @product.product_name2%> </p>
+<p> <strong>Unidad de medida: </strong> <%= @product.product_unit_of_measurement%> </p>
+<p> <strong>SKU: </strong> <%= @product.product_stock_keeping_unit%> </p>
+<p> <strong>Linea de producto: </strong> <%= @product.product_line%> </p>
+<p> <strong>Grupo de producto: </strong> <%= @product.product_group%> </p>
+<p> <strong>Tipo de producto:</strong> <%= @product.product_type%> </p>
+<p> <strong>Ubucación bodega:</strong> <%= @product.product_cellar_location%> </p>
+<p> <strong>Precio normal:</strong> <%= @product.product_normal_price%> </p>
+<p> <strong>Precio minimo:</strong> <%= @product.product_minimum_price%> </p>
+<p> <strong>Sucursal:</strong> <%= @product.product_branch_office%> </p>
+<p> <strong>Stock:</strong> <%=@product.product_stock%> </p>
+<p> <strong>Dominio:</strong> <%= @product.domain%> </p>
+<p> <strong>Fecha creación:</strong> <%= @product.created_at%> </p>
+<p> <strong>Fecha actualización:</strong> <%= @product.updated_at%> </p>
+
+        <p>Particular productos tiempo real json: </p>
         <%= Product.find_by(:product_identifier, @product.product_identifier)%>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

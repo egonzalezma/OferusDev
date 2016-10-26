@@ -1,0 +1,345 @@
+{
+    "version": "1.2",
+    "lastModified": "Fri Oct 21 09:07:17 CLST 2016",
+    "services": [{
+        "name": "NotaVentaService",
+        "address": "\/rest\/NotaVentaService",
+        "useRequest": true,
+        "resources": [{
+            "name": "NotVen",
+            "path": "\/NotVen",
+            "autoSave": true,
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {"dsOrder": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "ttvta": {
+                            "type": "array",
+                            "primaryKey": ["OrdeNum"],
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "_id": {"type": "string"},
+                                    "_errorString": {"type": "string"},
+                                    "OrdeNum": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "No.Pedido"
+                                    },
+                                    "ped_npv": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Pedido"
+                                    },
+                                    "ped_domain": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Dominio"
+                                    },
+                                    "ped_cust": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Codigo Cliente "
+                                    },
+                                    "ped_bill": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Codigo CLiente Cobranza"
+                                    },
+                                    "ped_ship": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Codigo Cliente Despacho"
+                                    },
+                                    "ped_ord_date": {
+                                        "type": "string",
+                                        "ablType": "DATE",
+                                        "default": null,
+                                        "title": "Fecha de la Orden",
+                                        "format": "date"
+                                    },
+                                    "ped_crea_date": {
+                                        "type": "string",
+                                        "ablType": "DATE",
+                                        "default": null,
+                                        "title": "Fecha de Creacion de la Orden",
+                                        "format": "date"
+                                    },
+                                    "ped_crea_hour": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Hora de la Creacion Orden"
+                                    },
+                                    "ped_genera_user": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Usuario Genera Orden"
+                                    },
+                                    "ped_crea_user": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Usuario Crea La Orden"
+                                    },
+                                    "ped_aprueba_user": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Usuario Aprueba Orden"
+                                    },
+                                    "ped_exporta_date": {
+                                        "type": "string",
+                                        "ablType": "DATE",
+                                        "default": null,
+                                        "title": "Fecha de Exportacion Orden",
+                                        "format": "date"
+                                    },
+                                    "ped_exporta_hour": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Hora de la Exportacion ORden"
+                                    },
+                                    "ped_exporta_user": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Usuario que exporta la Orden"
+                                    },
+                                    "ped_origen": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Tipo de Ingreso"
+                                    },
+                                    "ped_retira": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Tipo Retiro "
+                                    },
+                                    "ped_po": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Orden Compra"
+                                    },
+                                    "ped_site": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Sitio"
+                                    },
+                                    "ped_slspsn": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Cod.Vendedor"
+                                    },
+                                    "ped_transporte": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Cod.Transporte"
+                                    },
+                                    "ped_cr_terms": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Termino Credito"
+                                    },
+                                    "ped_cr_card": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Tipo Dcto "
+                                    },
+                                    "ped_status": {
+                                        "type": "integer",
+                                        "ablType": "INTEGER",
+                                        "default": 0,
+                                        "title": "Estado Pedido"
+                                    },
+                                    "ped_genera_date": {
+                                        "type": "string",
+                                        "ablType": "DATE",
+                                        "default": null,
+                                        "title": "Fecha Traspaso Orden ",
+                                        "format": "date"
+                                    },
+                                    "ped_genera_hour": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Hora Traspaso Orden"
+                                    },
+                                    "ped_aprueba_date": {
+                                        "type": "string",
+                                        "ablType": "DATE",
+                                        "default": null,
+                                        "title": "Fecha  Aprobacion",
+                                        "format": "date"
+                                    },
+                                    "ped_aprueba_hour": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "Hora  Aprobacion"
+                                    },
+                                    "ttdet": {
+                                        "type": "array",
+                                        "items": {"$ref": "#\/properties\/dsOrder\/properties\/ttdet"}
+                                    }
+                                }
+                            }
+                        },
+                        "ttdet": {
+                            "type": "object",
+                            "primaryKey": ["OrdeNum"],
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {"type": "string"},
+                                "_errorString": {"type": "string"},
+                                "OrdeNum": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "No.Pedido"
+                                },
+                                "det_line": {
+                                    "type": "integer",
+                                    "ablType": "INTEGER",
+                                    "default": 0,
+                                    "title": "Linea"
+                                },
+                                "det_domain": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Dominio"
+                                },
+                                "det_part": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": " Producto"
+                                },
+                                "det_um": {
+                                    "type": "string",
+                                    "ablType": "CHARACTER",
+                                    "default": "",
+                                    "title": "Unida"
+                                },
+                                "det_qty_ord": {
+                                    "type": "integer",
+                                    "ablType": "INTEGER",
+                                    "default": 0,
+                                    "title": "Cantidad Ordenada"
+                                },
+                                "det_list_pr": {
+                                    "type": "integer",
+                                    "ablType": "INTEGER",
+                                    "default": 0,
+                                    "title": "Precio Lista"
+                                },
+                                "det_discount": {
+                                    "type": "integer",
+                                    "ablType": "INTEGER",
+                                    "default": 0,
+                                    "title": "Descto Linea"
+                                },
+                                "det_price": {
+                                    "type": "integer",
+                                    "ablType": "INTEGER",
+                                    "default": 0,
+                                    "title": "Precio"
+                                }
+                            }
+                        }
+                    }
+                }}
+            },
+            "relations": [{
+                "relationName": "drOrderLine",
+                "parentName": "ttvta",
+                "childName": "ttdet",
+                "relationFields": [{
+                    "parentFieldName": "OrdeNum",
+                    "childFieldName": "OrdeNum"
+                }]
+            }],
+            "operations": [
+                {
+                    "path": "",
+                    "useBeforeImage": false,
+                    "type": "create",
+                    "verb": "post",
+                    "params": [{
+                        "name": "dsOrder",
+                        "type": "REQUEST_BODY"
+                    }]
+                },
+                {
+                    "name": "Getttdet",
+                    "path": "\/Getttdet",
+                    "useBeforeImage": false,
+                    "type": "invoke",
+                    "verb": "put",
+                    "params": [{
+                        "name": "filter",
+                        "type": "REQUEST_BODY"
+                    }]
+                },
+                {
+                    "path": "",
+                    "useBeforeImage": false,
+                    "type": "delete",
+                    "verb": "delete",
+                    "params": [{
+                        "name": "dsOrder",
+                        "type": "REQUEST_BODY"
+                    }]
+                },
+                {
+                    "name": "Getttvta",
+                    "path": "\/Getttvta",
+                    "useBeforeImage": false,
+                    "type": "invoke",
+                    "verb": "put",
+                    "params": [{
+                        "name": "filter",
+                        "type": "REQUEST_BODY"
+                    }]
+                },
+                {
+                    "path": "?filter={filter}",
+                    "useBeforeImage": false,
+                    "type": "read",
+                    "verb": "get",
+                    "params": []
+                },
+                {
+                    "path": "",
+                    "useBeforeImage": false,
+                    "type": "update",
+                    "verb": "put",
+                    "params": [{
+                        "name": "dsOrder",
+                        "type": "REQUEST_BODY"
+                    }]
+                }
+            ]
+        }]
+    }]
+}

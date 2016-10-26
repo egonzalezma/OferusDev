@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
-<%=@client.id%>
-<%=@client.client_unique_number%>
-<%=@client.client_rut%>
-<%=@client.client_name1%>
-<%=@client.client_name2%>
-<%=@client.client_address1%>
-<%=@client.client_address2%>
-<%=@client.client_city%>
-<%=@client.client_phone%>
-<%=@client.client_fax%>
-<%=@client.client_cell_phone%>
-<%=@client.client_web_site%>
-<%=@client.domain%>
-<%=@client.client_type1%>
-<%=@client.client_type2%>
-<%=@client.created_at%>
-<%=@client.updated_at%>
+	<p><strong>Identificador oferus</strong><%=@client.id%></p>
+	<p><strong>Identificador cliente</strong><%=@client.client_unique_number%></p>
+	<p><strong>Rut: </strong><%=@client.client_rut%></p>
+	<p><strong>Nombre 1 cliente: </strong><%=@client.client_name1%></p>
+	<p><strong>Nombre 2 cliente: </strong><%=@client.client_name2%></p>
+	<p><strong>Direccion 1: </strong><%=@client.client_address1%></p>
+	<p><strong>Dirección 2: </strong><%=@client.client_address2%></p>
+	<p><strong>Ciudad: </strong><%=@client.client_city%></p>
+	<p><strong>Teléfono: </strong><%=@client.client_phone%></p>
+	<p><strong>Fax: </strong><%=@client.client_fax%></p>
+	<p><strong>Teléfono celular: </strong><%=@client.client_cell_phone%></p>
+	<p><strong>Sitio web: </strong><%=@client.client_web_site%></p>
+	<p><strong>Dominio: </strong><%=@client.domain%></p>
+	<p><strong>Tipo 1 cliente: </strong><%=@client.client_type1%></p>
+	<p><strong>Tipo 2 cliente: </strong><%=@client.client_type2%></p>
+	<p><strong>Fecha creación: </strong><%=@client.created_at%></p>
+	<p><strong>Fecha actualización: </strong><%=@client.updated_at%></p>
 
 <p>Particular client json: </p>
 <%= Client.find_by(:client_unique_number, @client.client_unique_number)%>

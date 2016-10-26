@@ -1,0 +1,62 @@
+Client
+
+{"dsad_mstr":{"ttad_mstr":[{"ad_domain":"ITAKA","ad_addr":"00000002","ad_pst_id":"","ad_name":"","ad_line1":"","ad_line2":"","ad_line3":"","ad_city":"","ad_phone":"","ad_fax":"","ad_ref":"","ad_attn2":"","ad_misc1_id":"","ad_misc2_id":""}]}}
+
+Products
+
+{"dspt_mstr":{"ttpt_mstr":[{"pt_part":"101001","pt_desc1":"CORTADORA PANELVERTICAL","pt_desc2":"C4- EX  SAW SAFETY","pt_um":"PZ","pt_article":"7809824004415","pt_prod_line":"SAFM","pt_user1":"OTROS","pt_part_type":"SAFE002","pt_loc":"CDIT1001","pt_price":1849420.0,"pt_minpr":1294594.0,"pt_site":"2000","pt_domain":"ITAKA","pt__qad01":2.0,"oid_pt_mstr":0.0}]}}
+
+
+
+Sales Note 
+
+{"dsOrder":{
+"ttvta":[ #ARRAY#
+{"OrdeNum":"CHARACTER", #No.Pedido#
+ "ped_npv":"CHARACTER","#Pedido#
+ "ped_domain":"", #Dominio#
+ "ped_cust":"CHARACTER", #Codigo Cliente#
+ "ped_bill":"CHARACTER", #Codigo CLiente Cobranza#
+ "ped_ship":"CHARACTER", #Codigo Cliente Despacho#
+ "ped_ord_date":"DATE", #"Fecha de la Orden"#
+ "ped_crea_date":"DATE", #Fecha de Creacion de la Orden#
+ "ped_crea_hour":"CHARACTER", #Hora de la Creacion Orden#
+ "ped_genera_user":"CHARACTER", #Usuario Genera Orden#
+ "ped_crea_user":"CHARACTER", #Usuario Crea La Orden#
+ "ped_aprueba_user":"CHARACTER", #Usuario Aprueba Orden#
+ "ped_exporta_date":"DATE", #Fecha de Exportacion Orden#
+ "ped_exporta_hour":"CHARACTER", #Hora de la Exportacion Orden#
+ "ped_exporta_user":"CHARACTER", #Usuario que exporta la Orden#
+ "ped_origen":"CHARACTER", #Tipo de Ingreso#
+ "ped_retira":"CHARACTER", #Tipo Retiro#
+ "ped_po":"CHARACTER", #Orden Compra#
+ "ped_site":"CHARACTER", #Sitio#
+ "ped_slspsn":"CHARACTER", #Cod.Vendedor#
+ "ped_transporte":"CHARACTER", #Cod.Transporte#
+ "ped_cr_terms":"CHARACTER", #Termino Credito#
+ "ped_cr_card":"CHARACTER", #Tipo Dcto#
+ "ped_status":"INTEGER", #Estado Pedido#
+ "ped_genera_date":"DATE", #Fecha Traspaso Orden#
+ "ped_genera_hour":"CHARACTER", #Hora Traspaso Orden#
+ "ped_aprueba_date":"DATE", #Fecha  Aprobacion#
+ "ped_aprueba_hour":"CHARACTER", #Hora  Aprobacion#
+ },{}],
+
+ "ttdet":[ #ARRAY#
+{"OrdeNum":"CHARACTER", #No.Pedido#
+ "det_line":"INTEGER","#Linea#
+ "det_domain":"CHARACTER", #Dominio#
+ "det_part":"CHARACTER", #Producto#
+ "det_um":"CHARACTER", #Unida#
+ "det_qty_ord":"INTEGER", #Cantidad Ordenada#
+ "det_list_pr":"INTEGER", #Precio Lista#
+ "det_discount":"INTEGER", #Descto Linea#
+ "det_price":"INTEGER", #Precio#
+ },{}]
+ 
+}}
+ 
+
+ {"dspt_mstr":{"ttpt_mstr":[{"pt_part":"","pt_desc1":"OFERUS TEST","pt_desc2":"OFERUS TEST","pt_um":"OFERUS TEST","pt_article":"OFERUS TEST","pt_prod_line":"OFERUS TEST","pt_user1":"OFERUS TEST","pt_part_type":"OFERUS TEST","pt_loc":"OFERUS TEST","pt_price":1849420.0,"pt_minpr":1294594.0,"pt_site":"OFERUS TEST","pt_domain":"ITAKA","pt__qad01":2.0,"oid_pt_mstr":0.0}]}}   
+    
+                              
