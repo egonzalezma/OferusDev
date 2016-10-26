@@ -1,3 +1,4 @@
+<%= render "home/header" %>
 <p id="notice"><%= notice %></p>
 
 <p> <strong>ID: </strong> <%= @product.id%> </p>
@@ -23,3 +24,5 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<%= render "home/footer" %>
