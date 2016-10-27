@@ -3,6 +3,11 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to @product do %>
+<i class="material-icons">visibility</i>
+<%end%>
+<%= link_to products_path do %>
+<i class="material-icons">arrow_back</i>
+<%end%>
+
 <%= render "home/footer" %>

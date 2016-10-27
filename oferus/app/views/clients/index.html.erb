@@ -1,8 +1,7 @@
 <%= render "home/header" %>
 <div class="row">
-      <div class="col s3 m3 l3 grey white-text"> <!-- Note that "m4 l3" was added --> 
+      <div class="col s3 m3 l3 white-text"> <!-- Note that "m4 l3" was added --> 
         <div class="divider"></div>
-
         <div class="section">
           <a href="<%= clients_path %>"><h5 class="right-align">Clientes</h5></a>
         </div>
@@ -10,8 +9,8 @@
         <div class="divider"></div>
         <div class="section">
           <a href="<%= products_path%>"><h5 class="right-align">Productos</h5></a>
-
         </div>
+
         <div class="divider"></div>
         <div class="section">
           <a href="<%= root_path %>"><h5 class="right-align">Nota de Venta</h5></a>
@@ -19,30 +18,43 @@
       </div>
 
       <div class="col s9 m9 l9 white"> <!-- Note that "m8 l9" was added -->
-        <div class="row">
-            <p id="notice"><%= notice %></p>
-            <h5>Lista de clientes</h5>
-            <%= link_to 'New Client', new_client_path %>
-            <table class="responsive-table">
+            <div class="divider"></div>
+            <div>
+                <h5 class="center-align">Clientes ITAKA</h5></a>  
+            </div>
+              
+            <div class="nav-wrapper white black-text">
+                      <ul id="" class="left hide-on-med-and-down" >
+                      <li>
+                      <%if @clients.length != 0%>
+                      <h5>Lista de clientes</h5>
+                      <%else%>
+                      <h5>Actualmente no hay clientes cargados</h5>
+                      <%end%>
+                      </li>
+                      </ul>
+                      <ul id="" class="right">
+                        <a href="<%=new_client_path%>" class="waves-effect waves-light btn">
+                        Nuevo cliente
+                        </a>
+                        <a href="<%=data_client_load_path%>" class="waves-effect waves-light btn">
+                        Cargar clientes
+                        </a>
+                      </ul>
+            </div>
+
+
+            
+            
+            <% if @clients.length != 0%>
+            <div class="section">
+            <table class="responsive-table striped">
               <thead class="responsive">
                 <tr>
-                        <th><%=:id%></th>
-                        <th><%=:client_unique_number%></th>
-                        <th><%=:client_rut%></th>
-                        <th><%=:client_name1%></th>
-                        <th><%=:client_name2%></th>
-                        <th><%=:client_address1%></th>
-                        <th><%=:client_address2%></th>
-                        <th><%=:client_city%></th>
-                        <th><%=:client_phone%></th>
-                        <th><%=:client_fax%></th>
-                        <th><%=:client_cell_phone%></th>
-                        <th><%=:client_web_site%></th>
-                        <th><%=:domain%></th>
-                        <th><%=:client_type1%></th>
-                        <th><%=:client_type2%></th>
-                        <th><%=:created_at%></th>
-                        <th><%=:updated_at%></th>
+                        <th>Numero único</th>
+                        <th>Rut cliente</th>
+                        <th>Nombre 1</th>
+                        <th>Nombre 2</th>
                         <th colspan="17"></th>
                 </tr>
               </thead>
@@ -50,33 +62,34 @@
               <tbody class="responsive">
                 <% @clients.each do |client| %>
                   <tr>
-                    <td><%=client.id%></td>
-                    <td><%=client.client_unique_number%></td>
+                    <td>
+                    <a href="<%= client %>" class="blue-text text-darken-2"> <%=client.client_unique_number%> </a>
+                    </td>
                     <td><%=client.client_rut%></td>
                     <td><%=client.client_name1%></td>
                     <td><%=client.client_name2%></td>
-                    <td><%=client.client_address1%></td>
-                    <td><%=client.client_address2%></td>
-                    <td><%=client.client_city%></td>
-                    <td><%=client.client_phone%></td>
-                    <td><%=client.client_fax%></td>
-                    <td><%=client.client_cell_phone%></td>
-                    <td><%=client.client_web_site%></td>
-                    <td><%=client.domain%></td>
-                    <td><%=client.client_type1%></td>
-                    <td><%=client.client_type2%></td>
-                    <td><%=client.created_at%></td>
-                    <td><%=client.updated_at%></td>
-                    <td><%= link_to 'Show', client %></td>
-                    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-                    <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to client do %>
+                        <i class="material-icons">visibility</i>
+                        <%end%>
+                    </td>
+                    <td><%= link_to edit_client_path(client) do %>
+                        <i class="material-icons">mode_edit</i>
+                        <%end%>
+                    </td>
+                    <td><%= link_to client, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este item?' } do %>
+                        <i class="material-icons">delete</i>
+                        <%end%>
+                    </td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
-            <%= paginate @clients , :window => 2, :left => 1, :right => 3, :params => {:class => 'withe'}%>
-            <br>
+            </div>
+            <%end%>
+            
+            <%= paginate @clients , :window => 2, :left => 1, :right => 3%>
       </div>
+
 </div>
 
 <%= render "home/footer" %>

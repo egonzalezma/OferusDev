@@ -1,8 +1,12 @@
 <%= render "home/header" %>
-<h1>Editing Client</h1>
+<h1>Editando cliente</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to @client do %>
+<i class="material-icons">visibility</i>
+<%end%>
+<%= link_to clients_path do %>
+<i class="material-icons">arrow_back</i>
+<%end%>
 <%= render "home/footer" %>

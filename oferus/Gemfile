@@ -31,7 +31,8 @@ gem 'materialize-sass'
 gem 'rails-i18n', '~> 4.0.0'
 # Gema para paginación 
 gem 'kaminari'
-
+# Gema para crear backups
+gem 'backup'
 
 
 # Use ActiveModel has_secure_password

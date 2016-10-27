@@ -5,50 +5,9 @@ class DataController < ApplicationController
   # GET /data
   # GET /data.json
   def index
-    @client_erp_successful = false;
-    @product_erp_successful = false;
-    @client_successful = false;
-    @product_successful = false;
-
-    ## Codigo de carga cliente
-    begin
-      @data_client = Client.get_all_clients()
-      @data_clients = Client.save_from_erp_client(@data_client)
-      @client_erp_successful = true
-    rescue => ex
-      logger.error ex.message
-      @data_clients = Client.save_from_erp_client(nil)
-      @client_successful = true
-    end
-    
-    ## Codigo de carga producto
-    begin
-     @data_product = Product.get_all_products()
-     data_products = Product.save_from_erp_product(@data_product)
-     @product_erp_successful = true
-    rescue => ex
-      logger.error ex.message
-      @data_products = Product.save_from_erp_product(nil)
-      @product_successful = true
-    end
-    
-    ## Mensaje de salida
-    @message = ""
-    if @client_successful 
-      @message = @message + "Clientes cargados exitosamente desde archivo\n"
-    elsif @client_erp_successful
-      @message = @message + "Clientes cargados exitosamente desde ERP\n"
-    end
-
-    if @product_successful
-      @message = @message + "Productos cargados exitosamente desde archivo\n"
-    elsif @product_erp_successful
-      @message = @message + "Productos cargados exitosamente desde ERP\n"
-    end
-
-    return @message  
+  
   end
-
+  
   # GET /data/1
   # GET /data/1.json
   def show

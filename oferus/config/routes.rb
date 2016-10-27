@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   
   root :to => 'home#index'
 
+  namespace :data do
+  get 'product/load'
+  end
+
+  namespace :data do
+  get 'client/load'
+  end
+
   resources :data
   
   namespace :sale do

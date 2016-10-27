@@ -1,7 +1,9 @@
 <%= render "home/header" %>
-<h1>New Client</h1>
+<h1>Nuevo cliente</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', clients_path %>
+<%= link_to clients_path do %>
+<i class="material-icons">arrow_back</i>
+<%end%>
 <%= render "home/footer" %>

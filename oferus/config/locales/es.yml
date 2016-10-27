@@ -47,6 +47,33 @@ es:
         restrict_dependent_destroy:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
+  views:
+    users:
+      id: Identificador oferus
+      client_unique_number: Identificador cliente
+      client_rut: Rut cleinte
+      client_name1: Nombre 1 cliente
+      client_name2: Nombre 2 cliente
+      client_address1: Dirección 1
+      client_address2: Dirección 2
+      client_city: Ciudad
+      client_phone: Teléfono
+      client_fax: Fax
+      client_cell_phone: Celular
+      client_web_site: Sitio Web
+      domain: Dominio
+      client_type1: Tipo 1 cliente
+      client_type2: Tipo 2 cliente
+      created_at: fecha creacion
+      updated_at: fecha actualizacion
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "La validación falló: %{errors}"
+        restrict_dependent_destroy:
+          has_one: No se puede eliminar el registro porque existe un %{record} dependiente
+          has_many: No
+
   date:
     abbr_day_names:
     - dom

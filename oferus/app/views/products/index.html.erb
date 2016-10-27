@@ -1,61 +1,92 @@
 <%= render "home/header" %>
-<p id="notice"><%= notice %></p>
+<div class="row">
+      <div class="col s3 m3 l3 white-text"> <!-- Note that "m4 l3" was added --> 
+        <div class="divider"></div>
+        <div class="section">
+          <a href="<%= clients_path %>"><h5 class="right-align">Clientes</h5></a>
+        </div>
+        
+        <div class="divider"></div>
+        <div class="section">
+          <a href="<%= products_path%>"><h5 class="right-align">Productos</h5></a>
+        </div>
 
-<h1>Lista de productos</h1>
+        <div class="divider"></div>
+        <div class="section">
+          <a href="<%= root_path %>"><h5 class="right-align">Nota de Venta</h5></a>
+        </div>
+      </div>
 
-        <table class="striped responsive-table centered">
-          <thead>
-            <tr>
-                <th><%=:id%></th>
-                <th><%=:product_identifier%></th>
-                <th><%=:product_name1%></th>
-                <th><%=:product_name2%></th>
-                <th><%=:product_unit_of_measurement%></th>
-                <th><%=:product_stock_keeping_unit%></th>
-                <th><%=:product_line%></th>
-                <th><%=:product_group%></th>
-                <th><%=:product_type%></th>
-                <th><%=:product_cellar_location%></th>
-                <th><%=:product_normal_price%></th>
-                <th><%=:product_minimum_price%></th>
-                <th><%=:product_branch_office%></th>
-                <th><%=:product_stock%></th>
-                <th><%=:domain%></th>
-                <th><%=:created_at%></th>
-                <th><%=:updated_at%></th>  
-                <th colspan="17"></th>
-            </tr>
-          </thead>
+      <div class="col s9 m9 l9 white"> <!-- Note that "m8 l9" was added -->
+            <div class="divider"></div>
+            <div>
+                <h5 class="center-align">Productos ITAKA</h5></a>  
+            </div>
+              
+            <div class="nav-wrapper white black-text">
+                      <ul id="" class="left hide-on-med-and-down" >
+                      <li>
+                      <%if @products.length != 0%>
+                      <h5>Lista de productos</h5>
+                      <%else%>
+                      <h5>Actualmente no hay productos cargados</h5>
+                      <%end%>
+                      </li>
+                      </ul>
+                      <ul id="" class="right">
+                        <a href="<%=new_product_path%>" class="waves-effect waves-light btn">
+                        Nuevo producto
+                        </a>
+                        <a href="<%=data_product_load_path%>" class="waves-effect waves-light btn">
+                        Cargar productos
+                        </a>
+                      </ul>
+            </div>
+            
+            <% if @products.length != 0%>
+            <div class="section">
+            <table class="responsive-table striped centered">
+              <thead class="responsive">
+                <tr>
+                        <th>Numero único</th>
+                        <th>SKU</th>
+                        <th>Nombre 1</th>
+                        <th>Nombre 2</th>
+                        <th colspan="17"></th>
+                </tr>
+              </thead>
 
-          <tbody>
-            <% @products.each do |product| %>
-              <tr>
-                <td><%= product.id%></td>
-                <td><%= product.product_identifier%></td>
-                <td><%= product.product_name1%></td>
-                <td><%= product.product_name2%></td>
-                <td><%= product.product_unit_of_measurement%></td>
-                <td><%= product.product_stock_keeping_unit%></td>
-                <td><%= product.product_line%></td> 
-                <td><%= product.product_group%></td>
-                <td><%= product.product_type%></td>
-                <td><%= product.product_cellar_location%></td>
-                <td><%= product.product_normal_price%></td>
-                <td><%= product.product_minimum_price%></td>
-                <td><%= product.product_branch_office%></td>
-                <td><%= product.product_stock%></td>
-                <td><%= product.domain%></td>
-                <td><%= product.created_at%></td>
-                <td><%= product.updated_at%></td>           
-                <td><%= link_to 'Show', product %></td>
-                <td><%= link_to 'Edit', edit_product_path(product) %></td>
-                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= paginate @products , :window => 2, :left => 1, :right => 3 %>
+              <tbody class="responsive">
+                <% @products.each do |product| %>
+                  <tr>
+                    <td>
+                    <a href="<%= product %>" class="blue-text text-darken-2"> <%=product.product_identifier%> </a>
+                    </td>
+                    <td><%=product.product_stock_keeping_unit%></td>
+                    <td><%=product.product_name1%></td>
+                    <td><%=product.product_name2%></td>
+                    <td><%= link_to product do %>
+                        <i class="material-icons">visibility</i>
+                        <%end%>
+                    </td>
+                    <td><%= link_to edit_product_path(product) do %>
+                        <i class="material-icons">mode_edit</i>
+                        <%end%>
+                    </td>
+                    <td><%= link_to product, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este item?' } do %>
+                        <i class="material-icons">delete</i>
+                        <%end%>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            </div>
+            <%end%>
+            
+            <%= paginate @products , :window => 2, :left => 1, :right => 3%>
+      </div>
 
-<br>
-<%= link_to 'New Product', new_product_path %>
+</div>
+
 <%= render "home/footer" %>

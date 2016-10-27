@@ -1,38 +1,6 @@
 class Client < ActiveRecord::Base
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ####################  BEGIN ERP CLIENT CONFIG ############################
 
 PATH_JSON_FILE_CLIENT = Datum::PATH_JSON_FILE_CLIENT
