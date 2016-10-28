@@ -1,0 +1,1 @@
+json.array! @sale_note_items, partial: 'sale_note_items/sale_note_item', as: :sale_note_item

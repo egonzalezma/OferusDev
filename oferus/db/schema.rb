@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018150558) do
+ActiveRecord::Schema.define(version: 20161028042037) do
 
   create_table "client_reports", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -102,9 +102,50 @@ ActiveRecord::Schema.define(version: 20161018150558) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sale_note_items", force: :cascade do |t|
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "order_number",                limit: 255
+    t.integer  "order_item_line",             limit: 4
+    t.string   "domain",                      limit: 255
+    t.string   "product_identifier",          limit: 255
+    t.string   "product_unit_of_measurement", limit: 255
+    t.integer  "order_item_lot",              limit: 4
+    t.integer  "order_item_list_price",       limit: 4
+    t.integer  "order_item_price",            limit: 4
+    t.integer  "order_item_discount",         limit: 4
+  end
+
   create_table "sale_notes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "order_number",         limit: 255
+    t.string   "order_type",           limit: 255
+    t.string   "domain",               limit: 255
+    t.string   "order_custom_client",  limit: 255
+    t.string   "order_bill_client",    limit: 255
+    t.string   "order_ship_client",    limit: 255
+    t.date     "order_create_date"
+    t.time     "order_create_time"
+    t.string   "order_create_user",    limit: 255
+    t.date     "order_generate_date"
+    t.time     "order_generate_time"
+    t.string   "order_generate_user",  limit: 255
+    t.date     "order_approves_date"
+    t.time     "order_approves_time"
+    t.string   "order_approves_user",  limit: 255
+    t.date     "order_exports_date"
+    t.time     "order_exports_time"
+    t.string   "order_exports_user",   limit: 255
+    t.string   "order_origin",         limit: 255
+    t.string   "order_remove",         limit: 255
+    t.string   "order_code",           limit: 255
+    t.string   "order_site",           limit: 255
+    t.string   "order_seller_code",    limit: 255
+    t.string   "order_transport_code", limit: 255
+    t.string   "order_credit_type",    limit: 255
+    t.string   "order_discount_type",  limit: 255
+    t.integer  "order_state",          limit: 4
   end
 
   create_table "team_reports", force: :cascade do |t|

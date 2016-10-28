@@ -42,5 +42,11 @@ rails generate migration add_attribute_client_to_product  product_identifier:str
 
 rails generate migration add_attribute2_to_client client_type1:string client_type2:string
 
+Atributos para nota de venta (Prueba - Luego se pueden eliminar atributos)
 
+rails generate migration add_attribute2_to_sale_note
+
+rails generate scaffold Sale::Note::Item
+
+rails generate migration add_attribute_to_sale_note_item
 

@@ -6,8 +6,13 @@ class Data::ProductController < ApplicationController
     ## Codigo de carga producto
     begin
       @data_product = Product.get_all_products()
-      data_products = Product.save_from_erp_product(@data_product)
-      @product_erp_successful = true
+      if @data_product != nil
+          data_products = Product.save_from_erp_product(@data_product)
+          @product_erp_successful = true
+      else
+          @data_products = Product.save_from_erp_product(nil)
+          @product_successful = true
+      end
     rescue => ex
       logger.error ex.message
       @data_products = Product.save_from_erp_product(nil)

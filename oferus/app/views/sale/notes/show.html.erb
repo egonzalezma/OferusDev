@@ -1,4 +1,79 @@
-<p id="notice"><%= notice %></p>
+<%= render "home/header" %>
 
-<%= link_to 'Edit', edit_sale_note_path(@sale_note) %> |
-<%= link_to 'Back', sale_notes_path %>
+<p id="notice"><%= notice %></p>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Información Nota de Venta</span>
+              <p>
+      		   <p><strong>ID: </strong><%=@sale_note.id%></p>
+		       <p><strong>Identificador cliente: </strong><%=@sale_note.order_number%></p>         
+		       <p><strong>Tipo de orden: </strong><%=@sale_note.order_type%></p>           
+		       <p><strong>Dominio: </strong><%=@sale_note.domain%></p>               
+		       <p><strong>Custom Cliente: </strong><%=@sale_note.order_custom_client%></p>  
+		       <p><strong>Bill Cliente: </strong><%=@sale_note.order_bill_client%></p>    
+		       <p><strong>Ship Cliente: </strong><%=@sale_note.order_ship_client%></p>    
+		       <p><strong>Fecha creación nota: </strong><%=@sale_note.order_create_date%></p>
+		       <p><strong>Hora creación nota: </strong><%=@sale_note.order_create_time%></p>
+		       <p><strong>Usuario creador nota: </strong><%=@sale_note.order_create_user%></p>    
+		       <p><strong>Fecha generación nota: </strong><%=@sale_note.order_generate_date%></p>
+		       <p><strong>Hora generación nota: </strong><%=@sale_note.order_generate_time%></p>
+		       <p><strong>Usuario generador nota: </strong><%=@sale_note.order_generate_user%></p>  
+		       <p><strong>Fecha de aprobación nota: </strong><%=@sale_note.order_approves_date%></p>
+		       <p><strong>Hora de aprobación nota: </strong><%=@sale_note.order_approves_time%></p>
+		       <p><strong>Usuario aprobador nota: </strong><%=@sale_note.order_approves_user%></p>  
+		       <p><strong>Fecha exportación nota: </strong><%=@sale_note.order_exports_date%></p>
+		       <p><strong>Hora exportación nota: </strong><%=@sale_note.order_exports_time%></p>
+		       <p><strong>Usuario exportador nota: </strong><%=@sale_note.order_exports_user%></p>
+		       <p><strong>Origen: </strong><%=@sale_note.order_origin%></p>         
+		       <p><strong>Retiro: </strong><%=@sale_note.order_remove%></p>         
+		       <p><strong>Codigo de orden: </strong><%=@sale_note.order_code%></p>           
+		       <p><strong>Sitio: </strong><%=@sale_note.order_site%></p>           
+		       <p><strong>Código de Vendedor: </strong><%=@sale_note.order_seller_code%></p>    
+		       <p><strong>Código de Transporte: </strong><%=@sale_note.order_transport_code%></p> 
+		       <p><strong>Tipo de crédito: </strong><%=@sale_note.order_credit_type%></p>    
+		       <p><strong>Tipo de descuento: </strong><%=@sale_note.order_discount_type%></p>  
+		       <p><strong>Estado nota: </strong><%=@sale_note.order_state%></p>  
+		       <p><strong>Fecha creación:</strong><%=@sale_note.created_at%></p> 
+		       <p><strong>Fecha actualización:</strong><%=@sale_note.updated_at%></p>
+              </p>
+              <p>Items información</p>
+              <%items = Sale::Note::Item.find_by(order_number: @sale_note.order_number) %>
+              <% items.each do |item|%>
+              		<p><strong>Identificador cliente: </strong><%=item.order_number%>              
+   					<p><strong>Linea de item: </strong><%=item.order_item_line%>           
+   					<p><strong>Dominio: </strong><%=item.domain%>                   
+   					<p><strong>Identificador de producto: </strong><%=item.product_identifier%>
+   					<p><strong>Unidad de medida: </strong><%=item.product_unit_of_measurement%>
+		   			<p><strong>Candidad: </strong><%=item.order_item_lot%>          
+		   			<p><strong>Precio lista: </strong><%=item.order_item_list_price %>     
+		   			<p><strong>Precio: </strong><%=item.order_item_price%>        
+		   			<p><strong>Descuento: </strong><%=item.order_item_discount%>
+              <%end%>
+
+
+            </div>
+            <div class="card-action center">
+              <%= link_to sale_notes_path do %>
+                    <i class="material-icons">arrow_back</i>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+            
+
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">Infomación obtenida en tiempo real JSON FORMATO:
+          </span>
+          <br>
+          <span>
+          	<%= # Product.find_by(:product_identifier, @product.product_identifier)%>
+          </span>
+        </div>
+      </div>
+    </div>
+<%= render "home/footer" %>

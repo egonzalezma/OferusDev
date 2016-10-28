@@ -2,6 +2,7 @@
 <h1>Nuevo producto</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', products_path %>
+<%= link_to products_path do %>
+<i class="material-icons">arrow_back</i>
+<%end%>
 <%= render "home/footer" %>

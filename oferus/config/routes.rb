@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  namespace :sale do
+    namespace :note do
+      resources :items
+    end
+  end
   root :to => 'home#index'
 
   namespace :data do

@@ -26,7 +26,7 @@ Clients_hash = {  :client_unique_number => "ad_addr",
   # Funcion para importar de ERP dato cliente a DataBase
   def self.save_from_erp_client (jsonClientList = nil)
     if jsonClientList == nil
-       jsonClientList = File.read("#{PATH_JSON_FILE_CLIENT}")
+        jsonClientList = File.read("#{PATH_JSON_FILE_CLIENT}")
     end    
     data_hash = JSON.parse(jsonClientList)
     data_hash_clients = data_hash["dsad_mstr"]
@@ -56,14 +56,22 @@ Clients_hash = {  :client_unique_number => "ad_addr",
   end
 
   def self.find_by(attribute, value)
-    att = Clients_hash[attribute]
-    @data_client = RestClient.get(Datum::API_BASE_URL_CLIENT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
-    return @data_client
+    begin
+      att = Clients_hash[attribute]
+      @data_client = RestClient.get(Datum::API_BASE_URL_CLIENT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
+      return @data_client
+    rescue Exception => e
+      nil
+    end
   end
 
   def self.get_all_clients()
-    @data_client = RestClient.get(Datum::API_BASE_URL_CLIENT_ALL).force_encoding("utf-8")
-    return @data_client
+    begin
+      @data_client = RestClient.get(Datum::API_BASE_URL_CLIENT_ALL).force_encoding("utf-8")
+      return @data_client
+    rescue Exception => e
+      nil
+    end
   end
 
 ####################  END ERP CLIENT CONFIG ############################

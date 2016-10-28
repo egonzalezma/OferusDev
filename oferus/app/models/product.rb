@@ -55,7 +55,7 @@ Products_hash = { :product_identifier => "pt_part",
   # Funcion para importar de ERP dato product a DataBase
   def self.save_from_erp_product (jsonProductList = nil)
     if jsonProductList == nil
-       jsonProductList = File.read("#{PATH_JSON_FILE_PRODUCT}")
+        jsonProductList = File.read("#{PATH_JSON_FILE_PRODUCT}")
     end
     data_hash = JSON.parse(jsonProductList)
     data_hash_products = data_hash["dspt_mstr"]
@@ -85,14 +85,22 @@ Products_hash = { :product_identifier => "pt_part",
   end
 
   def self.find_by(attribute, value)
-    att = Products_hash[attribute]
-    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
-    return @data_product
+    begin
+          att = Products_hash[attribute]
+          @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")
+          return @data_product
+    rescue Exception => e
+          nil
+    end
   end
 
   def self.get_all_products()
-    @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL).force_encoding("utf-8")
-    return @data_product
+    begin
+          @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL).force_encoding("utf-8")
+          return @data_product
+    rescue Exception => e
+          nil
+    end
   end
   
   # ARREGLAR

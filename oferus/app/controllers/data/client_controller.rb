@@ -6,8 +6,13 @@ class Data::ClientController < ApplicationController
     ## Codigo de carga cliente
     begin
       @data_client = Client.get_all_clients()
-      @data_clients = Client.save_from_erp_client(@data_client)
-      @client_erp_successful = true
+      if @data_client != nil
+         @data_clients = Client.save_from_erp_client(@data_client)
+         @client_erp_successful = true
+      else 
+         @data_clients = Client.save_from_erp_client(nil)
+         @client_successful = true
+      end
     rescue => ex
       logger.error ex.message
       @data_clients = Client.save_from_erp_client(nil)

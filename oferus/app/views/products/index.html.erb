@@ -13,7 +13,7 @@
 
         <div class="divider"></div>
         <div class="section">
-          <a href="<%= root_path %>"><h5 class="right-align">Nota de Venta</h5></a>
+          <a href="<%= sale_notes_path %>"><h5 class="right-align">Nota de Venta</h5></a>
         </div>
       </div>
 
@@ -60,7 +60,11 @@
                 <% @products.each do |product| %>
                   <tr>
                     <td>
-                    <a href="<%= product %>" class="blue-text text-darken-2"> <%=product.product_identifier%> </a>
+                      <%= link_to product do %>
+                        <p class="blue-text text-darken-2" >
+                        <%=product.product_identifier%>
+                        </p>
+                      <%end%>
                     </td>
                     <td><%=product.product_stock_keeping_unit%></td>
                     <td><%=product.product_name1%></td>
