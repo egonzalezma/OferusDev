@@ -55,7 +55,7 @@ Clients_hash = {  :client_unique_number => "ad_addr",
 
   end
 
-  def self.find_by(attribute, value)
+  def self.find_by_erp(attribute, value)
     begin
       att = Clients_hash[attribute]
       @data_client = RestClient.get(Datum::API_BASE_URL_CLIENT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")

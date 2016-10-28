@@ -84,7 +84,7 @@ Products_hash = { :product_identifier => "pt_part",
   
   end
 
-  def self.find_by(attribute, value)
+  def self.find_by_erp(attribute, value)
     begin
           att = Products_hash[attribute]
           @data_product = RestClient.get(Datum::API_BASE_URL_PRODUCT_ALL+" and "+att+"=\""+value+"\"").force_encoding("utf-8")

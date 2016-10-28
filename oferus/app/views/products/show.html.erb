@@ -45,7 +45,7 @@
           </span>
           <br>
           <span>
-          	<%= Product.find_by(:product_identifier, @product.product_identifier)%>
+          	<%= Product.find_by_erp(:product_identifier, @product.product_identifier)%>
           </span>
         </div>
       </div>

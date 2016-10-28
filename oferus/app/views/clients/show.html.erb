@@ -47,7 +47,7 @@
           </span>
           <br>
           <span>
-          	<%= Client.find_by(:client_unique_number, @client.client_unique_number)%>
+          	<%= Client.find_by_erp(:client_unique_number, @client.client_unique_number)%>
           </span>
         </div>
       </div>

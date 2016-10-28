@@ -39,8 +39,7 @@
 		       <p><strong>Fecha actualización:</strong><%=@sale_note.updated_at%></p>
               </p>
               <p>Items información</p>
-              <%items = Sale::Note::Item.find_by(order_number: @sale_note.order_number) %>
-              <% items.each do |item|%>
+              <%item = Sale::Note::Item.find_by(order_number: @sale_note.order_number) %>
               		<p><strong>Identificador cliente: </strong><%=item.order_number%>              
    					<p><strong>Linea de item: </strong><%=item.order_item_line%>           
    					<p><strong>Dominio: </strong><%=item.domain%>                   
@@ -50,7 +49,6 @@
 		   			<p><strong>Precio lista: </strong><%=item.order_item_list_price %>     
 		   			<p><strong>Precio: </strong><%=item.order_item_price%>        
 		   			<p><strong>Descuento: </strong><%=item.order_item_discount%>
-              <%end%>
 
 
             </div>
@@ -71,7 +69,7 @@
           </span>
           <br>
           <span>
-          	<%= # Product.find_by(:product_identifier, @product.product_identifier)%>
+          	<%= Sale::Note.find_by_erp(@sale_note.order_number)%>
           </span>
         </div>
       </div>

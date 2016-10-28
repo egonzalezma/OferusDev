@@ -5,11 +5,14 @@ class PostSaleNotesController < ApplicationController
 	#end
 
 	def index
-    time = DateTime.new.to_s
+    @sale_notes = Sale::Note.all
+    count = (@sale_notes.length + 1).to_s
+    time = Time.now
+    time = time.to_formatted_s(:number)  
 		body = {
 				"dsOrder": {
 					"ttvta": [{
-						"OrdeNum": "PRUEBAOFERUS"+time,
+						"OrdeNum": "PRUEBAOFERUS"+count+time,
 						"ped_npv": "ST",
 						"ped_domain": "ITAKA",
 						"ped_cust": "86053400",
@@ -54,8 +57,8 @@ class PostSaleNotesController < ApplicationController
 
 		begin
 			@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , body.to_json, {content_type: :json, accept: :json})
-			sale_note = new Sale::Note 
-			sale_note.order_number = "PRUEBAOFERUS"+time        
+			sale_note = Sale::Note.new 
+			sale_note.order_number = "PRUEBAOFERUS"+count+time        
 	        sale_note.order_type = "ST"           
 	        sale_note.domain = "ITAKA"           
 	        sale_note.order_custom_client = "86053400" 
@@ -84,8 +87,8 @@ class PostSaleNotesController < ApplicationController
 	        sale_note.order_state = 9
 	        sale_note.save
 
-	        sale_note_item = new Sale::Note::Item 
-	        sale_note_item.order_number = "PRUEBAOFERUS"+time               
+	        sale_note_item = Sale::Note::Item.new
+	        sale_note_item.order_number = "PRUEBAOFERUS"+count+time               
    			sale_note_item.order_item_line = 1           
    			sale_note_item.domain  = "ITAKA"                  
    			sale_note_item.product_identifier = "123761"         

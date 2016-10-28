@@ -55,14 +55,18 @@
                 <% @sale_notes.each do |sale_note| %>
                   <tr>
                     <td>
-                    <a href="<%= sale_note %>" class="blue-text text-darken-2"> <%=sale_note.order_number%> </a>
+                    <%= link_to sale_note do %>
+                        <p class="blue-text text-darken-2" >
+                        <%=sale_note.order_number%>
+                        </p>
+                      <%end%>
                     </td>
                     <td><%=sale_note.order_state%></td>
                     <td><%= link_to sale_note do %>
                         <i class="material-icons">visibility</i>
                         <%end%>
                     </td>
-                    <td><%= link_to sate_notes, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este item?' } do %>
+                    <td><%= link_to sale_note, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este item?' } do %>
                         <i class="material-icons">delete</i>
                         <%end%>
                     </td>
