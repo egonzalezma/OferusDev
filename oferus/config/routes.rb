@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :product do
+  get 'search/index'
+  end
+
   namespace :sale do
     namespace :note do
       resources :items
