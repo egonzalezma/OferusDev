@@ -1,8 +1,7 @@
 <%= render "home/header" %>
-<div class="row">
 <%= render "home/navbar" %>
 
-      <div class="col s9 m9 l9 white"> <!-- Note that "m8 l9" was added -->
+      <div class="col s12 m9 l9 white"> <!-- Note that "m8 l9" was added -->
             <div class="divider"></div>
             <div>
                 <h5 class="center-align">Productos ITAKA</h5></a>  
@@ -69,13 +68,16 @@
                   </tr>
                 <% end %>
               </tbody>
+
             </table>
             </div>
             <%end%>
             
-            <%= paginate @products , :window => 2, :left => 1, :right => 3%>
+            <div class="nav-wrapper white black-text">
+              <%= paginate @products , :window => 2, :left => 1, :right => 3, :html => { :class => "pagination"} %>
+            </div>
+            
+            
       </div>
-
-</div>
 
 <%= render "home/footer" %>

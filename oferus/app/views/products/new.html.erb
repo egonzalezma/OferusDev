@@ -1,8 +1,13 @@
 <%= render "home/header" %>
-<h1>Nuevo producto</h1>
-
-<%= render 'form' %>
-<%= link_to products_path do %>
-<i class="material-icons">arrow_back</i>
-<%end%>
+<%= render "home/navbar" %>
+<h4 class=" center-align white-text">Nuevo producto</h4>
+<div class="col s12 m9 l9 white"> 
+	<div class="center-align">
+	<%= link_to products_path do %>
+	<i class="material-icons">arrow_back</i>
+	<%end%>
+	</div>
+	<%= render 'form' %>
+	
+</div>
 <%= render "home/footer" %>

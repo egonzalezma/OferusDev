@@ -3,6 +3,13 @@
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-light { color: rgba(255, 255, 255, 0); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 1); }
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -2743,6 +2750,48 @@ video.responsive-video {
   height: auto;
 }
 
+.pagination {
+   background-color: #b2dfdb;
+}
+
+.pagination span {
+  display: inline-block;
+  border-radius: 2px;
+  text-align: center;
+  vertical-align: top;
+  height: 30px;
+}
+
+.pagination span  {
+  color: black;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.pagination span.active a {
+  color: #fff;
+}
+
+.pagination span.active {
+  background-color: #ee6e73;
+}
+
+.pagination span.disabled a {
+  cursor: default;
+  color: #999;
+}
+
+.pagination span i {
+  font-size: 2rem;
+}
+
+.pagination span.pages ul li {
+  display: inline-block;
+  float: none;
+}
+
 .pagination li {
   display: inline-block;
   border-radius: 2px;
@@ -2885,6 +2934,9 @@ ul.staggered-list li {
 @media only screen and (max-width: 600px) {
   .hide-on-small-only, .hide-on-small-and-down {
     display: none !important;
+  }
+  div.navoferus {
+  display: none;
   }
 }
 

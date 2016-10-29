@@ -1,13 +1,19 @@
 <%= render "home/header" %>
-<h1>Editing Product</h1>
+<%= render "home/navbar" %>
+<h4 class=" center-align white-text">Editando producto</h4>
+<div class="col s12 m9 l9 teal lighten-3"> 
+	<div class="center-align teal lighten-3">
+	<%= link_to @product do %>
+	<i class="material-icons">visibility</i>
+	<%end%>
+	<%= link_to products_path do %>
+	<i class="material-icons">arrow_back</i>
+	<%end%>
+	</div>
+	<div class="container">
+	<%= render 'form' %>
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to @product do %>
-<i class="material-icons">visibility</i>
-<%end%>
-<%= link_to products_path do %>
-<i class="material-icons">arrow_back</i>
-<%end%>
 
 <%= render "home/footer" %>

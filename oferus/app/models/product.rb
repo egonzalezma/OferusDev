@@ -84,6 +84,32 @@ Products_hash = { :product_identifier => "pt_part",
   
   end
 
+  def self.get_product_from_json (jsonProduct)
+    data_hash = JSON.parse(jsonProduct)
+    data_hash_products = data_hash["dspt_mstr"]
+    data_hash_products = data_hash_products["ttpt_mstr"]
+
+    data_hash_products.each do |product|
+      @product = Product.new
+      @product.product_identifier = product[Products_hash[:product_identifier]]
+      @product.product_name1 = product[Products_hash[:product_name1]]
+      @product.product_name2 = product[Products_hash[:product_name2]]
+      @product.product_unit_of_measurement = product[Products_hash[:product_unit_of_measurement]]
+      @product.product_stock_keeping_unit = product[Products_hash[:product_stock_keeping_unit]]
+      @product.product_line = product[Products_hash[:product_line]]
+      @product.product_group = product[Products_hash[:product_group]]
+      @product.product_type = product[Products_hash[:product_type]]
+      @product.product_cellar_location = product[Products_hash[:product_cellar_location]]
+      @product.product_normal_price = product[Products_hash[:product_normal_price]]
+      @product.product_minimum_price = product[Products_hash[:product_minimum_price]]
+      @product.product_branch_office = product[Products_hash[:product_branch_office]]
+      @product.product_stock = product[Products_hash[:product_stock]]
+      @product.domain = product[Products_hash[:domain]]
+      return @product
+    end
+  
+  end
+
   def self.find_by_erp(attribute, value)
     begin
           att = Products_hash[attribute]
