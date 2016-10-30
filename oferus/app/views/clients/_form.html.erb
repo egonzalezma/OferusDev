@@ -1,4 +1,4 @@
-<%= form_for(@client) do |f| %>
+<%= form_for @client, :html => {:class => 'teal lighten-5'} do |f| %> 
   <% if @client.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
@@ -10,56 +10,57 @@
       </ul>
     </div>
   <% end %>
+  <div class="divider"></div>
+  <br>
   <div class="field">
-    <%= f.label(:client_rut, "Rut cliente")%><br> 
+    <%= f.label :client_rut, "Rut cliente", :class=>'flow-text'%><br> 
     <%= f.text_field :client_rut %>
   </div> 
   <div class="field">
-    <%= f.label(:client_name1, "Nombre 1 Cliente")%><br> 
+    <%= f.label :client_name1, "Nombre 1 Cliente", :class=>'flow-text'%><br> 
     <%= f.text_field :client_name1 %>
   </div> 
   <div class="field">
-    <%= f.label(:client_name2, "Nombre 2 Cliente")%><br> 
+    <%= f.label :client_name2, "Nombre 2 Cliente", :class=>'flow-text'%><br> 
     <%= f.text_field :client_name2 %>
   </div> 
   <div class="field">
-    <%= f.label(:client_address1, "Dirección 1 Cliente")%><br> 
+    <%= f.label :client_address1, "Dirección 1 Cliente", :class=>'flow-text'%><br> 
     <%= f.text_field :client_address1 %>
   </div> 
   <div class="field">
-    <%= f.label(:client_address2, "Dirección 2 Cliente")%><br> 
+    <%= f.label :client_address2, "Dirección 2 Cliente", :class=>'flow-text'%><br> 
     <%= f.text_field :client_address2%>
   </div> 
   <div class="field">
-    <%= f.label(:client_city, "Ciudad")%><br> 
+    <%= f.label :client_city, "Ciudad", :class=>'flow-text'%><br> 
     <%= f.text_field :client_city %>
   </div> 
   <div class="field">
-    <%= f.label(:client_phone, "Teléfono")%><br> 
+    <%= f.label :client_phone, "Teléfono", :class=>'flow-text'%><br> 
     <%= f.text_field :client_phone %>
   </div> 
   <div class="field">
-    <%= f.label(:client_fax, "Fax")%><br> 
+    <%= f.label :client_fax, "Fax" , :class=>'flow-text'%><br> 
     <%= f.text_field :client_fax %>
   </div> 
   <div class="field">
-    <%= f.label(:client_cell_phone, "Teléfono celular")%><br> 
+    <%= f.label :client_cell_phone, "Teléfono celular", :class=>'flow-text'%><br> 
     <%= f.text_field :client_cell_phone %>
   </div> 
   <div class="field">
-    <%= f.label(:client_web_site, "Sitio web")%><br> 
+    <%= f.label :client_web_site, "Sitio web", :class=>'flow-text'%><br> 
     <%= f.text_field :client_web_site %>
   </div> 
   <div class="field">
-    <%= f.label(:client_type1, "Tipo cliente 1")%><br> 
+    <%= f.label :client_type1, "Tipo cliente 1", :class=>'flow-text'%><br> 
     <%= f.text_field :client_type1 %>
   </div> 
   <div class="field">
-    <%= f.label(:client_type2, "Tipo cliente 2")%><br> 
+    <%= f.label :client_type2, "Tipo cliente 2", :class=>'flow-text'%><br> 
     <%= f.text_field :client_type2 %>
   </div> 
-  <div class="actions">
-    <%= f.submit "Guardar" %>
-  </div>
+  <div class="actions right-align">
+    <%= f.submit "Guardar", :class => "waves-effect waves-light btn" %>
   </div>
 <% end %>

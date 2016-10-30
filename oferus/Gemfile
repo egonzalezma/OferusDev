@@ -30,7 +30,9 @@ gem 'materialize-sass'
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n', '~> 4.0.0'
 # Gema para paginación 
-gem 'kaminari'
+gem 'will_paginate', '~> 3.1.0'
+# Gema para visualizar will_paginate con materialize
+gem 'will_paginate-materialize', '~> 0.1.0'
 # Gema para crear backups
 gem 'backup'
 

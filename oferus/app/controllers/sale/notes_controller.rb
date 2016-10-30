@@ -4,7 +4,7 @@ class Sale::NotesController < ApplicationController
   # GET /sale/notes
   # GET /sale/notes.json
   def index
-    @sale_notes = Sale::Note.page(params[:page]).per(5)
+    @sale_notes = Sale::Note.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /sale/notes/1

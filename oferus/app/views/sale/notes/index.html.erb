@@ -1,47 +1,49 @@
 <%= render "home/header" %>
-<div class="row">
-      <div class="col s3 m3 l3 white-text"> <!-- Note that "m4 l3" was added --> 
-        <div class="divider"></div>
-        <div class="section">
-          <a href="<%= clients_path %>"><h5 class="right-align">Clientes</h5></a>
-        </div>
-        
-        <div class="divider"></div>
-        <div class="section">
-          <a href="<%= products_path%>"><h5 class="right-align">Productos</h5></a>
-        </div>
+<%= render "home/navbar" %>
 
-        <div class="divider"></div>
-        <div class="section">
-          <a href="<%= sale_notes_path %>"><h5 class="right-align">Nota de Venta</h5></a>
-        </div>
-      </div>
-
-      <div class="col s9 m9 l9 white"> <!-- Note that "m8 l9" was added -->
+      <div class="col s12 m12 l9 white"> <!-- Note that "m8 l9" was added -->
             <div class="divider"></div>
             <div>
-                <h5 class="center-align">Notas de Ventas ITAKA</h5></a>  
+                <h5 class="center-align">Notas de Venta ITAKA</h5>
+                <h5 class="show-on-medium-and-down hide-on-med-and-up">
+                <%if @sale_notes.length != 0%>
+                  Lista de notas de ventas
+                  <%else%>
+                  Actualmente no hay notas creadas
+                <%end%>
+                </h5>
+                        <p>
+                        <div class="fixed-action-btn show-on-medium-and-down hide-on-med-and-up" style="bottom: 45px; right: 24px;">
+                          <a class="btn-floating btn-large red">
+                            <i class="large material-icons">mode_edit</i>
+                          </a>
+                          <ul>
+                            <li><a href="<%=post_sale_notes_path%>" class="btn-floating red"><i class="material-icons">add_circle</i></a></li>
+                          </ul>
+                        </div>
+                        </p>
+                 
             </div>
               
-            <div class="nav-wrapper white black-text">
+            <div class="white black-text">
                       <ul id="" class="left hide-on-med-and-down" >
                       <li>
-                      <%if @sale_notes.length != 0%>
-                      <h5>Lista notas de venta</h5>
-                      <%else%>
-                      <h5>Actualmente no hay notas de ventas ingresadas</h5>
-                      <%end%>
+                        <%if @sale_notes.length != 0%>
+                        <h5>Lista de notas de ventas</h5>
+                        <%else%>
+                        <h5>Actualmente no hay notas creadas</h5>
+                        <%end%>
                       </li>
                       </ul>
-                      <ul id="" class="right">
+                      <ul id="" class="right hide-on-med-and-down">
                         <a href="<%=post_sale_notes_path%>" class="waves-effect waves-light btn">
-                        Nueva nota de venta
+                        Nueva nota de venta 
                         </a>
                       </ul>
             </div>
             
             <% if @sale_notes.length != 0%>
-            <div class="section">
+            <div>
             <table class="responsive-table striped centered">
               <thead class="responsive">
                 <tr>
@@ -77,9 +79,11 @@
             </div>
             <%end%>
             
-            <%= paginate @sale_notes , :window => 2, :left => 1, :right => 3%>
+            <div class="nav-wrapper white black-text">
+              <%= will_paginate @sale_notes, :class => "pagination center-align"%>
+            </div>
+            
+            
       </div>
-
-</div>
 
 <%= render "home/footer" %>

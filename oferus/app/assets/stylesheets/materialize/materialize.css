@@ -2754,42 +2754,8 @@ video.responsive-video {
    background-color: #b2dfdb;
 }
 
-.pagination span {
-  display: inline-block;
-  border-radius: 2px;
-  text-align: center;
-  vertical-align: top;
-  height: 30px;
-}
-
-.pagination span  {
-  color: black;
-  display: inline-block;
-  font-size: 1.2rem;
-  padding: 0 10px;
-  line-height: 30px;
-}
-
-.pagination span.active a {
+.pagination a li.active {
   color: #fff;
-}
-
-.pagination span.active {
-  background-color: #ee6e73;
-}
-
-.pagination span.disabled a {
-  cursor: default;
-  color: #999;
-}
-
-.pagination span i {
-  font-size: 2rem;
-}
-
-.pagination span.pages ul li {
-  display: inline-block;
-  float: none;
 }
 
 .pagination li {

@@ -55,6 +55,32 @@ Clients_hash = {  :client_unique_number => "ad_addr",
 
   end
 
+  def self.get_client_from_json (jsonClient)
+    data_hash = JSON.parse(jsonClient)
+    data_hash_clients = data_hash["dsad_mstr"]
+    data_hash_clients = data_hash_clients["ttad_mstr"]
+
+    data_hash_clients.each do |client|
+      @client = Client.new
+      @client.client_unique_number = client[Clients_hash[:client_unique_number]]
+      @client.client_rut = client[Clients_hash[:client_rut]]
+      @client.client_name1 = client[Clients_hash[:client_name1]]
+      @client.client_name2 = client[Clients_hash[:client_name2]]
+      @client.client_address1 = client[Clients_hash[:client_address1]]
+      @client.client_address2 = client[Clients_hash[:client_address2]]
+      @client.client_city = client[Clients_hash[:client_city]]
+      @client.client_phone = client[Clients_hash[:client_phone]]
+      @client.client_fax = client[Clients_hash[:client_fax]]
+      @client.client_cell_phone = client[Clients_hash[:client_cell_phone]]
+      @client.client_web_site = client[Clients_hash[:client_web_site]]
+      @client.domain = client[Clients_hash[:domain]]
+      @client.client_type1 = client[Clients_hash[:client_type1]]
+      @client.client_type2 = client[Clients_hash[:client_type2]]
+      return @client
+    end
+  
+  end
+
   def self.find_by_erp(attribute, value)
     begin
       att = Clients_hash[attribute]
