@@ -97,11 +97,14 @@ class PostSaleNotesController < ApplicationController
    			sale_note_item.order_item_list_price = 16308      
    			sale_note_item.order_item_price  = -799092        
    			sale_note_item.order_item_discount = 50
-   			sale_note_item.save        
+   			sale_note_item.save 
 
-			@message = "Nota de venta ingresada exitosamente a ERP"
+   			@sale_note = sale_note       
+
+		@arr =	 { :m => "Nota de venta ingresada exitosamente a ERP", :sn => @sale_note} 
+		
 		rescue => e
-			@message = "Problemas con el servicio Web ERP"
+		@arr =	 { :m => "Problemas con el servicio Web ERP", :sn => @sale_note} 
 		end
 	end
 

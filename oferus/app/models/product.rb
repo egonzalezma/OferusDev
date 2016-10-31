@@ -85,11 +85,11 @@ Products_hash = { :product_identifier => "pt_part",
   end
 
   def self.get_product_from_json (jsonProduct)
-    data_hash = JSON.parse(jsonProduct)
-    data_hash_products = data_hash["dspt_mstr"]
-    data_hash_products = data_hash_products["ttpt_mstr"]
-
-    data_hash_products.each do |product|
+    begin
+      data_hash = JSON.parse(jsonProduct)
+      data_hash_products = data_hash["dspt_mstr"]
+      data_hash_products = data_hash_products["ttpt_mstr"]
+      data_hash_products.each do |product|
       @product = Product.new
       @product.product_identifier = product[Products_hash[:product_identifier]]
       @product.product_name1 = product[Products_hash[:product_name1]]
@@ -107,7 +107,9 @@ Products_hash = { :product_identifier => "pt_part",
       @product.domain = product[Products_hash[:domain]]
       return @product
     end
-  
+    rescue Exception => e
+       nil
+    end  
   end
 
   def self.find_by_erp(attribute, value)

@@ -5,23 +5,23 @@
             <div class="divider"></div>
             <div>
                 <h5 class="center-align">Productos ITAKA</h5>
-                <h5 class="show-on-medium-and-down hide-on-med-and-up">
+                <div class="divider"></div>
+                <h5 class="show-on-medium-and-down hide-on-med-and-up center-align">
                 <%if @products.length != 0%>
                   Lista de productos</h5>
                   <%else%>
                   Actualmente no hay productos cargados</h5>
                 <%end%>
-                        <p>
-                        <div class="fixed-action-btn show-on-medium-and-down hide-on-med-and-up" style="bottom: 45px; right: 24px;">
-                          <a class="btn-floating btn-large red">
-                            <i class="large material-icons">mode_edit</i>
-                          </a>
-                          <ul>
-                            <li><a href="<%=new_product_path%>" class="btn-floating red"><i class="material-icons">add_circle</i></a></li>
-                            <li><a href="<%=data_product_load_path%>" class="btn-floating yellow darken-1"><i class="material-icons">backup</i></a></li>
-                          </ul>
-                        </div>
-                        </p>
+                <div class="divider"></div>
+                 <ul id="" class="center show-on-medium-and-down hide-on-med-and-up center-align">
+                    <a href="<%=new_product_path%>" class="waves-effect waves-light btn">
+                    Nuevo producto
+                    </a>
+                    <div class="divider"></div>
+                    <a href="<%=data_product_load_path%>" class="waves-effect waves-light btn">
+                    Cargar productos
+                    </a>
+                  </ul>     
                  
             </div>
               
@@ -47,7 +47,7 @@
             
             <% if @products.length != 0%>
             <div>
-            <table class="responsive-table striped centered">
+            <table class="striped centered">
               <thead class="responsive">
                 <tr>
                         <th>Numero único</th>
@@ -72,15 +72,15 @@
                     <td><%=product.product_name1%></td>
                     <td><%=product.product_name2%></td>
                     <td><%= link_to product do %>
-                        <i class="material-icons">visibility</i>
+                        <i class="material-icons md-dark">visibility</i>
                         <%end%>
                     </td>
                     <td><%= link_to edit_product_path(product) do %>
-                        <i class="material-icons">mode_edit</i>
+                        <i class="material-icons md-dark">mode_edit</i>
                         <%end%>
                     </td>
                     <td><%= link_to product, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este item?' } do %>
-                        <i class="material-icons">delete</i>
+                        <i class="material-icons md-dark">delete</i>
                         <%end%>
                     </td>
                   </tr>

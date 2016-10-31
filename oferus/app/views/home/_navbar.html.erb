@@ -1,18 +1,26 @@
 <div class="row grey darken-4">
-       <div class="navoferus col m2 l3 grey darken-4 white-text hide-on-med-and-down"> <!-- Note that "m4 l3" was added --> 
+       <div class="navoferus col m3 l3 hide-on-med-and-down">    
         <div class="divider"></div>
-        <div class="section">
-          <a href="<%= clients_path %>"><h6 class="center-align">Clientes</h6></a>
-        </div>
-        
-        <div class="divider"></div>
-        <div class="section">
-          <a href="<%= products_path%>"><h6 class="center-align">Productos</h6></a>
-        </div>
-
-        <div class="divider"></div>
-        <div class="section">
-          <a href="<%= sale_notes_path %>"><h6 class="center-align">Nota de Venta</h6></a>
-        </div>
-        <div class="divider"></div>
+        <div class="section row ">
+          <h5 class="center-align white-text">Módulo ITAKA</h5>
+          <div class="section">
+            <a href="<%= clients_path %>">
+               <div class="col s10"><h6 class="left-align">Clientes</h6></div>
+               <div class="col s2"><i class="material-icons right-align">toc</i></div>
+            </a>
+            <a href="<%= products_path %>">
+               <div class="col l10 m10"><h6 class="left-align">Productos</h6></div>
+               <div class="col l2 m2"><i class="material-icons right-align">toc</i></div>
+            </a>
+            <a href="<%= sale_notes_path %>">
+                   <div class="col s10"><h6 class="left-align">Notas de venta</h6></div>
+                   <div class="col s2"><i class="material-icons right-align">toc</i></div>
+            </a>
+            <a href="<%= product_search_index_path %>">
+               <div class="col l10 m10"><h6 class="left-align">Buscador productos SKU</h6></div>
+               <div class="col l2 m2"><i class="material-icons right-align">search</i></div>
+            </a>
+          </div>
+        </div> 
+        <div class="divider"></div>       
       </div>

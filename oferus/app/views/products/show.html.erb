@@ -1,8 +1,8 @@
 <%= render "home/header" %>
 <%= render "home/navbar" %>
- <div class="col s12 m9 l9 white">
+ <div class="col s12 m12 l9 white">
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Información producto</span>
@@ -39,7 +39,7 @@
       </div>
             
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Infomación obtenida en tiempo real Consulta Web Service:</span>
@@ -63,8 +63,10 @@
                <p> 
                <strong>Stock: </strong> 
                <%=@product.product_stock%> 
+              <%else%>
+              <strong>Problema con ERP</strong>
               <%end%>
-               </p>
+               </p> 
               </span>
               </p>
             </div>

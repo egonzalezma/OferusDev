@@ -5,23 +5,20 @@
             <div class="divider"></div>
             <div>
                 <h5 class="center-align">Notas de Venta ITAKA</h5>
-                <h5 class="show-on-medium-and-down hide-on-med-and-up">
+                <div class="divider"></div>
+                <h5 class="show-on-medium-and-down hide-on-med-and-up center-align">
                 <%if @sale_notes.length != 0%>
                   Lista de notas de ventas
                   <%else%>
                   Actualmente no hay notas creadas
                 <%end%>
                 </h5>
-                        <p>
-                        <div class="fixed-action-btn show-on-medium-and-down hide-on-med-and-up" style="bottom: 45px; right: 24px;">
-                          <a class="btn-floating btn-large red">
-                            <i class="large material-icons">mode_edit</i>
-                          </a>
-                          <ul>
-                            <li><a href="<%=post_sale_notes_path%>" class="btn-floating red"><i class="material-icons">add_circle</i></a></li>
-                          </ul>
-                        </div>
-                        </p>
+                <div class="divider"></div>
+                 <ul id="" class="center show-on-medium-and-down hide-on-med-and-up center-align">
+                    <a href="<%=post_sale_notes_path%>" class="waves-effect waves-light btn">
+                        Nueva nota de venta 
+                    </a>
+                  </ul>  
                  
             </div>
               
@@ -44,8 +41,8 @@
             
             <% if @sale_notes.length != 0%>
             <div>
-            <table class="responsive-table striped centered">
-              <thead class="responsive">
+            <table class="striped centered">
+              <thead class="">
                 <tr>
                         <th>Identificador Orden</th>
                         <th>Estado</th>
@@ -53,7 +50,7 @@
                 </tr>
               </thead>
 
-              <tbody class="responsive">
+              <tbody class="">
                 <% @sale_notes.each do |sale_note| %>
                   <tr>
                     <td>
@@ -72,6 +69,10 @@
                         <i class="material-icons">delete</i>
                         <%end%>
                     </td>
+                    
+
+
+
                   </tr>
                 <% end %>
               </tbody>
