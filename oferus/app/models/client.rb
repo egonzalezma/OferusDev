@@ -51,7 +51,7 @@ Clients_hash = {  :client_unique_number => "ad_addr",
       @client.save
     end
  
-    return "Carga realizada con exito"
+    return "Carga realizada con éxito"
 
   end
 

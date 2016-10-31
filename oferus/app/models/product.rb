@@ -80,7 +80,7 @@ Products_hash = { :product_identifier => "pt_part",
       @product.save
     end
 
-    return "Carga realizada con exito"
+    return "Carga realizada con éxito"
   
   end
 
