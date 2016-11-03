@@ -2,7 +2,7 @@ class Product::SearchController < ApplicationController
   def index
      begin
     	if params[:searchbox].strip.length > 1
-    		@products = Product.find_by_erp(:product_stock_keeping_unit, params[:searchbox])
+    		@products = Product.find_by_erp(:product_identifier, params[:searchbox])
     		if @products != nil
     			@product = Product.get_product_from_json(@products)
     			if @product != nil

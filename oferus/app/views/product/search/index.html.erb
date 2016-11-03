@@ -5,14 +5,14 @@
       <div class="col s12 m12 l9"> <!-- Note that "m8 l9" was added -->
             <div class="divider"></div>
             <div>
-                <h5 class="center-align white-text">Buscador SKU</h5></a>  
+                <h5 class="center-align white-text">Buscador producto</h5></a>  
             </div>
             <div class="divider"></div>
 
             <div class="nav-wrapper white-text row">
               <%= form_tag({:controller => "product/search", :action => "index"}, :method => :get) do %>
 
-  			      <%= text_field_tag "searchbox", params[:searchbox], placeholder: "      Ingrese el SKU del producto", :class => "black white-text" %>
+  			      <%= text_field_tag "searchbox", params[:searchbox], placeholder: "      Ingrese el identificador de producto", :class => "black white-text" %>
               <%= submit_tag "Buscar", :name => nil , :class => "waves-effect waves-light btn" do %>
 
               <%end%>

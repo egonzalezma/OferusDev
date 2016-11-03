@@ -33,22 +33,24 @@ Clients_hash = {  :client_unique_number => "ad_addr",
     data_hash_clients = data_hash_clients["ttad_mstr"]
 
     data_hash_clients.each do |client|
-      @client = Client.new
-      @client.client_unique_number = client[Clients_hash[:client_unique_number]]
-      @client.client_rut = client[Clients_hash[:client_rut]]
-      @client.client_name1 = client[Clients_hash[:client_name1]]
-      @client.client_name2 = client[Clients_hash[:client_name2]]
-      @client.client_address1 = client[Clients_hash[:client_address1]]
-      @client.client_address2 = client[Clients_hash[:client_address2]]
-      @client.client_city = client[Clients_hash[:client_city]]
-      @client.client_phone = client[Clients_hash[:client_phone]]
-      @client.client_fax = client[Clients_hash[:client_fax]]
-      @client.client_cell_phone = client[Clients_hash[:client_cell_phone]]
-      @client.client_web_site = client[Clients_hash[:client_web_site]]
-      @client.domain = client[Clients_hash[:domain]]
-      @client.client_type1 = client[Clients_hash[:client_type1]]
-      @client.client_type2 = client[Clients_hash[:client_type2]]
-      @client.save
+      if Client.find_by(client_unique_number: client[Clients_hash[:client_unique_number]]) == nil
+          @client = Client.new
+          @client.client_unique_number = client[Clients_hash[:client_unique_number]]
+          @client.client_rut = client[Clients_hash[:client_rut]]
+          @client.client_name1 = client[Clients_hash[:client_name1]]
+          @client.client_name2 = client[Clients_hash[:client_name2]]
+          @client.client_address1 = client[Clients_hash[:client_address1]]
+          @client.client_address2 = client[Clients_hash[:client_address2]]
+          @client.client_city = client[Clients_hash[:client_city]]
+          @client.client_phone = client[Clients_hash[:client_phone]]
+          @client.client_fax = client[Clients_hash[:client_fax]]
+          @client.client_cell_phone = client[Clients_hash[:client_cell_phone]]
+          @client.client_web_site = client[Clients_hash[:client_web_site]]
+          @client.domain = client[Clients_hash[:domain]]
+          @client.client_type1 = client[Clients_hash[:client_type1]]
+          @client.client_type2 = client[Clients_hash[:client_type2]]
+          @client.save
+      end
     end
  
     return "Carga realizada con éxito"

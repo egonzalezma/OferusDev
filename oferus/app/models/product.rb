@@ -62,6 +62,7 @@ Products_hash = { :product_identifier => "pt_part",
     data_hash_products = data_hash_products["ttpt_mstr"]
 
     data_hash_products.each do |product|
+      if Product.find_by(product_identifier: product[Products_hash[:product_identifier]]) == nil
       @product = Product.new
       @product.product_identifier = product[Products_hash[:product_identifier]]
       @product.product_name1 = product[Products_hash[:product_name1]]
@@ -78,6 +79,7 @@ Products_hash = { :product_identifier => "pt_part",
       @product.product_stock = product[Products_hash[:product_stock]]
       @product.domain = product[Products_hash[:domain]]
       @product.save
+      end
     end
 
     return "Carga realizada con éxito"
