@@ -6,12 +6,14 @@ class PostSaleNotesController < ApplicationController
     time = Time.now
     Time::DATE_FORMATS[:time_oferus] = '%H:%M:%S'
     Time::DATE_FORMATS[:date_oferus] = '%Y-%m-%d'
-    id = time.to_formatted_s(:number)  
+    Time::DATE_FORMATS[:id] = '%H%M%S'
+
+    id = time.to_formatted_s(:id)  
     hour = time.to_formatted_s(:time_oferus)
     date = time.to_formatted_s(:date_oferus)  
 			bodya = {
 				"dsOrder": {
-					"ttvta": [{"OrdeNum": "PRUEBAOFERUSa"+count+id ,
+					"ttvta": [{"OrdeNum": "P0"+id ,
 						"ped_npv": "ST", 
 						"ped_domain": "ITAKA",
 						"ped_cust": "86053400",
@@ -40,7 +42,7 @@ class PostSaleNotesController < ApplicationController
 						"ped_aprueba_date": date,
 						"ped_aprueba_hour": hour,
 						"ttdet": [{
-							"OrdeNum": "PRUEBAOFERUSa"+count+id ,
+							"OrdeNum": "P0"+id ,
 							"det_line": 1,
 							"det_domain": "ITAKA",
 							"det_part": "123761",
@@ -56,7 +58,7 @@ class PostSaleNotesController < ApplicationController
 
 			bodyb = {
 				"dsOrder": {
-					"ttvta": [{"OrdeNum": "PRUEBAOFERUSb"+count+id ,
+					"ttvta": [{"OrdeNum": "P0"+id ,
 						"ped_npv": "ST", 
 						"ped_domain": "ITAKA",
 						"ped_cust": "UCVICUÑA",
@@ -85,7 +87,7 @@ class PostSaleNotesController < ApplicationController
 						"ped_aprueba_date": date,
 						"ped_aprueba_hour": hour,
 						"ttdet": [{
-							"OrdeNum": "PRUEBAOFERUSb"+count+id ,
+							"OrdeNum": "P0"+id ,
 							"det_line": 1,
 							"det_domain": "ITAKA",
 							"det_part": "123761",
@@ -96,7 +98,7 @@ class PostSaleNotesController < ApplicationController
 							"det_price": 799092
 						},
 						{
-							"OrdeNum": "PRUEBAOFERUSb"+count+id,
+							"OrdeNum": "P0"+id,
 							"det_line": 0,
 							"det_domain": "ITAKA",
 							"det_part": "999313",
@@ -114,7 +116,7 @@ class PostSaleNotesController < ApplicationController
 
 			bodyd = {
 				"dsOrder": {
-					"ttvta": [{"OrdeNum": "PRUEBAOFERUSd"+count+id ,
+					"ttvta": [{"OrdeNum": "P0"+id ,
 						"ped_npv": "ST", 
 						"ped_domain": "ITAKA",
 						"ped_cust": "05090671",
@@ -143,7 +145,7 @@ class PostSaleNotesController < ApplicationController
 						"ped_aprueba_date": date,
 						"ped_aprueba_hour": hour,
 						"ttdet": [{
-							"OrdeNum": "PRUEBAOFERUSd"+count+id ,
+							"OrdeNum": "P0"+id ,
 							"det_line": 0,
 							"det_domain": "ITAKA",
 							"det_part": "103050",
@@ -159,7 +161,7 @@ class PostSaleNotesController < ApplicationController
 
 			bodye = {
 				"dsOrder": {
-					"ttvta": [{"OrdeNum": "PRUEBAOFERUSe"+count+id ,
+					"ttvta": [{"OrdeNum": "P0"+id ,
 						"ped_npv": "ST", 
 						"ped_domain": "ITAKA",
 						"ped_cust": "76851SUC",
@@ -188,7 +190,7 @@ class PostSaleNotesController < ApplicationController
 						"ped_aprueba_date": date,
 						"ped_aprueba_hour": hour,
 						"ttdet": [{
-							"OrdeNum": "PRUEBAOFERUSe"+count+id ,
+							"OrdeNum": "P0"+id ,
 							"det_line": 0,
 							"det_domain": "ITAKA",
 							"det_part": "103064",
