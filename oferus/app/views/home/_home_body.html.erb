@@ -1,0 +1,56 @@
+<div class="col s12 m12 l9 white-text"> <!-- Note that "m8 l9" was added -->
+<div class="divider"></div>
+<div>
+    <h5 class="center-align">Módulo ITAKA</h5>
+    <div class="divider"></div>
+    <div class="card-panel teal">
+	    <h6>Este módulo de prueba fue diseñado particularmente para ITAKA,  el presente módulo permite:
+	    </h6> 
+	    <ol>
+	    	<li> Cargar clientes desde ERP o localmente. </li>
+	    	<li> Cargar productos desde ERP o localmente. </li>
+	    	<li> Ver lista de clientes. </li>
+	    	<li> Ver lista de productos. </li>
+	    	<li> Ingresar nota de venta a ERP. </li>
+	    	<li> Ver lista de notas de venta. </li>
+	    	<li> Buscar en ERP productos por número único. </li>
+	    </ol>
+
+	    <h6>A continuación se presenta resume el estado del ERP: </h6> 
+	    <% status = Datum.checkERP() %>
+	    <ol>
+	    	<li> 
+	    	     <%if status[:read_client] == false %>
+	    	     <span class="new badge left red" data-badge-caption="Desactivado"></span>
+	    	     <%else%>
+	    	     <span class="new badge white black-text" data-badge-caption="Activado"></span>
+	    	     <%end%>
+	    	     Servicios Web ERP clientes
+	    	</li>
+	    	<br>
+	    	<li> 
+	    	     <%if status[:read_product] == false %>
+	    	     <span class="new badge left red" data-badge-caption="Desactivado"></span>
+	    	     <%else%>
+	    	     <span class="new badge white black-text" data-badge-caption="Activado"></span>
+	    	     <%end%>
+	    	     Servicios Web ERP productos
+	    	</li>
+	    	<br>
+	    	<li> 
+	    	     <%if status[:write_sale_note] == false %>
+	    	     <span class="new badge left red" data-badge-caption="Desactivado"></span>
+	    	     <%else%>
+	    	     <span class="new badge white black-text" data-badge-caption="Activado"></span>
+	    	     <%end%>
+	    	     Servicios Web ERP nota de venta
+	    	</li>
+	    </ol>
+
+    </div>
+
+
+</div>
+</div>
+  
+    

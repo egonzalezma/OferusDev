@@ -51,4 +51,4 @@ production:
   <<: *default
   database: oferus_production
   username: oferus
-  password: <%= ENV['OFERUS_DATABASE_PASSWORD'] %>
+  password: oferusdev

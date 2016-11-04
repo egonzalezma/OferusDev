@@ -25,6 +25,25 @@ class Datum < ActiveRecord::Base
 # End Config PATH client ERP
 
 
+  # Funcion para importar de ERP dato product a DataBase
+  def self.checkERP ()
+    @Status = {:read_product => false, :read_client => false, :write_sale_note => false}
+    @product_test = Product.find_by_erp(:product_identifier,"101001")
+    @client_test = Client.find_by_erp(:client_unique_number,"00000300")
+    @sale_note_test = Sale::Note.find_by_erp("GOT7812")
+   if @sale_note_test != nil 
+    @Status[:write_sale_note] = true
+   end
 
+   if @product_test != nil
+    @Status [:read_product] = true
+   end 
+
+   if @client_test != nil
+    @Status [:read_client] = true
+   end
+   
+   return @Status
+  end
 
 end

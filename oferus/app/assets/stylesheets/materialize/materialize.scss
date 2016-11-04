@@ -4,8 +4,23 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
 
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons.md-dark { 
+  color: rgba(0, 0, 0, 0.54); 
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+
+}
+
+.material-icons.md-dark.md-inactive { 
+  color: rgba(0, 0, 0, 0.26); 
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+
+}
 
 .material-icons.md-light { color: rgba(255, 255, 255, 0); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 1); }
@@ -3424,6 +3439,7 @@ input[type=range] + .thumb {
   -webkit-font-feature-settings: 'liga';
      -moz-font-feature-settings: 'liga';
           font-feature-settings: 'liga';
+          
 }
 
 .container {
@@ -6002,7 +6018,7 @@ textarea.materialize-textarea + label:after {
 .input-field input[type=search]:focus + label i,
 .input-field input[type=search]:focus ~ .mdi-navigation-close,
 .input-field input[type=search]:focus ~ .material-icons {
-  color: #444;
+  color: transparent;
 }
 
 .input-field input[type=search] + label {

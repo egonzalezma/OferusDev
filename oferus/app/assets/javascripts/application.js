@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require_tree 
 //= require materialize-sprockets
- @import "../materialize";
+//= require pace/pace
+

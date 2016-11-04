@@ -1,3 +1,0 @@
-Importante
-
-1) Modificar Path de data_controller dependiento del equipo donde se deploye.

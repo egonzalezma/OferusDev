@@ -29,17 +29,17 @@ es:
       product_name3: Nombre del producto 3
       product_unit_of_measurement: Unidad de medida
       product_stock_keeping_unit: SKU
-      product_line: Linea de producto
+      product_line: Línea de producto
       product_group: Grupo de producto
       product_type: Tipo de producto
-      product_cellar_location: Ubicacion bodega
+      product_cellar_location: Ubicación bodega
       product_normal_price: Precio normal
-      product_minimum_price: Precio minimo
+      product_minimum_price: Precio mínimo
       product_branch_office: Sucursal
       product_stock: Stock producto
       domain: Dominio
-      created_at: fecha creacion
-      updated_at: fecha actualizacion
+      created_at: fecha creación
+      updated_at: fecha actualización
   activerecord:
     errors:
       messages:
