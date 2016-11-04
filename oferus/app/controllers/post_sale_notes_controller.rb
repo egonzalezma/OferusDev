@@ -1,31 +1,30 @@
 class PostSaleNotesController < ApplicationController
-	#def index
-	#	@json = {"hola": "hola", "chao": "chao"}.to_json
-	#	@res = JSON.parse(@json)
-	#end
 
 	def index
     @sale_notes = Sale::Note.all
-    count = (@sale_notes.length + 1).to_s
+    count = (@sale_notes.length).to_s
     time = Time.now
-    time = time.to_formatted_s(:number)  
-		body = {
+    Time::DATE_FORMATS[:time_oferus] = '%H:%M:%S'
+    Time::DATE_FORMATS[:date_oferus] = '%Y-%m-%d'
+    id = time.to_formatted_s(:number)  
+    hour = time.to_formatted_s(:time_oferus)
+    date = time.to_formatted_s(:date_oferus)  
+			bodya = {
 				"dsOrder": {
-					"ttvta": [{
-						"OrdeNum": "PRUEBAOFERUS"+count+time,
-						"ped_npv": "ST",
+					"ttvta": [{"OrdeNum": "PRUEBAOFERUSa"+count+id ,
+						"ped_npv": "ST", 
 						"ped_domain": "ITAKA",
 						"ped_cust": "86053400",
 						"ped_bill": "86053400",
 						"ped_ship": "86053400",
-						"ped_ord_date": "2016-10-20",
-						"ped_crea_date": "2016-10-20",
-						"ped_crea_hour": "9:00:22",
+						"ped_ord_date": date,
+						"ped_crea_date": date,
+						"ped_crea_hour": hour,
 						"ped_genera_user": "KCATALAN",
 						"ped_crea_user": "KCATALAN",
 						"ped_aprueba_user": "KCATALAN",
-						"ped_exporta_date": "2016-10-20",
-						"ped_exporta_hour": "10:00:41",
+						"ped_exporta_date": date,
+						"ped_exporta_hour": hour,
 						"ped_exporta_user": "EALBORNO",
 						"ped_origen": "Directo",
 						"ped_retira": "Cliente",
@@ -36,12 +35,12 @@ class PostSaleNotesController < ApplicationController
 						"ped_cr_terms": "CONTADO",
 						"ped_cr_card": "XF",
 						"ped_status": 9,
-						"ped_genera_date": "2016-10-20",
-						"ped_genera_hour": "9:00:22",
-						"ped_aprueba_date": "2016-10-20",
-						"ped_aprueba_hour": "9:00:22",
+						"ped_genera_date": date,
+						"ped_genera_hour": hour,
+						"ped_aprueba_date": date,
+						"ped_aprueba_hour": hour,
 						"ttdet": [{
-							"OrdeNum": "PRUEBAOFERUS",
+							"OrdeNum": "PRUEBAOFERUSa"+count+id ,
 							"det_line": 1,
 							"det_domain": "ITAKA",
 							"det_part": "123761",
@@ -49,62 +48,261 @@ class PostSaleNotesController < ApplicationController
 							"det_qty_ord": 1,
 							"det_list_pr": 16308,
 							"det_discount": 50,
-							"det_price": -799092
+							"det_price": 799092
+						}]
+					}]
+				}
+			}
+
+			bodyb = {
+				"dsOrder": {
+					"ttvta": [{"OrdeNum": "PRUEBAOFERUSb"+count+id ,
+						"ped_npv": "ST", 
+						"ped_domain": "ITAKA",
+						"ped_cust": "04319322",
+						"ped_bill": "04319322",
+						"ped_ship": "04319322",
+						"ped_ord_date": date,
+						"ped_crea_date": date,
+						"ped_crea_hour": hour,
+						"ped_genera_user": "KCATALAN",
+						"ped_crea_user": "KCATALAN",
+						"ped_aprueba_user": "KCATALAN",
+						"ped_exporta_date": date,
+						"ped_exporta_hour": hour,
+						"ped_exporta_user": "EALBORNO",
+						"ped_origen": "Directo",
+						"ped_retira": "Cliente",
+						"ped_po": "44552",
+						"ped_site": "2000",
+						"ped_slspsn": "300",
+						"ped_transporte": "0",
+						"ped_cr_terms": "CONTADO",
+						"ped_cr_card": "XF",
+						"ped_status": 9,
+						"ped_genera_date": date,
+						"ped_genera_hour": hour,
+						"ped_aprueba_date": date,
+						"ped_aprueba_hour": hour,
+						"ttdet": [{
+							"OrdeNum": "PRUEBAOFERUSb"+count+id ,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "123761",
+							"det_um": "PZ",
+							"det_qty_ord": 1,
+							"det_list_pr": 16308,
+							"det_discount": 50,
+							"det_price": 799092
+						},
+						{
+							"OrdeNum": "PRUEBAOFERUSb"+count+id,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "101009",
+							"det_um": "PZ",
+							"det_qty_ord": 1,
+							"det_list_pr": 17500000 ,
+							"det_discount": 5,
+							"det_price": 12250000 
+						}]
+					}]
+				}
+			}
+
+			bodyc = {
+				"dsOrder": {
+					"ttvta": [{"OrdeNum": "PRUEBAOFERUSc"+count+id ,
+						"ped_npv": "ST", 
+						"ped_domain": "ITAKA",
+						"ped_cust": "86053400",
+						"ped_bill": "86053400",
+						"ped_ship": "86053400",
+						"ped_ord_date": date,
+						"ped_crea_date": date,
+						"ped_crea_hour": hour,
+						"ped_genera_user": "KCATALAN",
+						"ped_crea_user": "KCATALAN",
+						"ped_aprueba_user": "KCATALAN",
+						"ped_exporta_date": date,
+						"ped_exporta_hour": hour,
+						"ped_exporta_user": "EALBORNO",
+						"ped_origen": "Directo",
+						"ped_retira": "Cliente",
+						"ped_po": "44552",
+						"ped_site": "2000",
+						"ped_slspsn": "300",
+						"ped_transporte": "0",
+						"ped_cr_terms": "CONTADO",
+						"ped_cr_card": "XF",
+						"ped_status": 9,
+						"ped_genera_date": date,
+						"ped_genera_hour": hour,
+						"ped_aprueba_date": date,
+						"ped_aprueba_hour": hour,
+						"ttdet": [{
+							"OrdeNum": "PRUEBAOFERUSc"+count+id ,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "123761",
+							"det_um": "PZ",
+							"det_qty_ord": 1,
+							"det_list_pr": 16308,
+							"det_discount": 50,
+							"det_price": 799092
+						},
+						{
+							"OrdeNum": "PRUEBAOFERUSc"+count+id ,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "101009",
+							"det_um": "PZ",
+							"det_qty_ord": 1,
+							"det_list_pr": 17500000,
+							"det_discount": 5,
+							"det_price": 12250000 
+						},
+					    {
+							"OrdeNum": "PRUEBAOFERUSc"+count+id ,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "103041",
+							"det_um": "PZ",
+							"det_qty_ord": 1,
+							"det_list_pr": 80357,
+							"det_discount": 10,
+							"det_price": 56250
+						}]
+					}]
+				}
+			}
+
+			bodyd = {
+				"dsOrder": {
+					"ttvta": [{"OrdeNum": "PRUEBAOFERUSd"+count+id ,
+						"ped_npv": "ST", 
+						"ped_domain": "ITAKA",
+						"ped_cust": "05090671",
+						"ped_bill": "05090671",
+						"ped_ship": "05090671",
+						"ped_ord_date": date,
+						"ped_crea_date": date,
+						"ped_crea_hour": hour,
+						"ped_genera_user": "KCATALAN",
+						"ped_crea_user": "KCATALAN",
+						"ped_aprueba_user": "KCATALAN",
+						"ped_exporta_date": date,
+						"ped_exporta_hour": hour,
+						"ped_exporta_user": "EALBORNO",
+						"ped_origen": "Directo",
+						"ped_retira": "Cliente",
+						"ped_po": "44552",
+						"ped_site": "2000",
+						"ped_slspsn": "300",
+						"ped_transporte": "0",
+						"ped_cr_terms": "CONTADO",
+						"ped_cr_card": "XF",
+						"ped_status": 9,
+						"ped_genera_date": date,
+						"ped_genera_hour": hour,
+						"ped_aprueba_date": date,
+						"ped_aprueba_hour": hour,
+						"ttdet": [{
+							"OrdeNum": "PRUEBAOFERUSd"+count+id ,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "103050",
+							"det_um": "PZ",
+							"det_qty_ord": 5,
+							"det_list_pr": 6134,
+							"det_discount": 10,
+							"det_price": 4294
+						}]
+					}]
+				}
+			}
+
+			bodye = {
+				"dsOrder": {
+					"ttvta": [{"OrdeNum": "PRUEBAOFERUSe"+count+id ,
+						"ped_npv": "ST", 
+						"ped_domain": "ITAKA",
+						"ped_cust": "76851SUC",
+						"ped_bill": "76851SUC",
+						"ped_ship": "76851SUC",
+						"ped_ord_date": date,
+						"ped_crea_date": date,
+						"ped_crea_hour": hour,
+						"ped_genera_user": "KCATALAN",
+						"ped_crea_user": "KCATALAN",
+						"ped_aprueba_user": "KCATALAN",
+						"ped_exporta_date": date,
+						"ped_exporta_hour": hour,
+						"ped_exporta_user": "EALBORNO",
+						"ped_origen": "Directo",
+						"ped_retira": "Cliente",
+						"ped_po": "44552",
+						"ped_site": "2000",
+						"ped_slspsn": "300",
+						"ped_transporte": "0",
+						"ped_cr_terms": "CONTADO",
+						"ped_cr_card": "XF",
+						"ped_status": 9,
+						"ped_genera_date": date,
+						"ped_genera_hour": hour,
+						"ped_aprueba_date": date,
+						"ped_aprueba_hour": hour,
+						"ttdet": [{
+							"OrdeNum": "PRUEBAOFERUSe"+count+id ,
+							"det_line": 1,
+							"det_domain": "ITAKA",
+							"det_part": "103064",
+							"det_um": "PZ",
+							"det_qty_ord": 2,
+							"det_list_pr": 25252,
+							"det_discount": 50,
+							"det_price": 17676
 						}]
 					}]
 				}
 			}
 
 		begin
-			@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , body.to_json, {content_type: :json, accept: :json})
-			sale_note = Sale::Note.new 
-			sale_note.order_number = "PRUEBAOFERUS"+count+time        
-	        sale_note.order_type = "ST"           
-	        sale_note.domain = "ITAKA"           
-	        sale_note.order_custom_client = "86053400" 
-	        sale_note.order_bill_client = "86053400"   
-	        sale_note.order_ship_client = "86053400"    
-	        sale_note.order_create_date = "2016-10-20"
-	        sale_note.order_create_time = "9:00:22"
-	        sale_note.order_create_user = "KCATALAN"    
-	        sale_note.order_generate_date = "2016-10-20"
-	        sale_note.order_generate_time = "9:00:22"
-	        sale_note.order_generate_user = "KCATALAN"  
-	        sale_note.order_approves_date = "2016-10-20"
-	        sale_note.order_approves_time = "9:00:22"
-	        sale_note.order_approves_user = "KCATALAN"  
-	        sale_note.order_exports_date = "2016-10-20"
-	        sale_note.order_exports_time = "10:00:41"
-	        sale_note.order_exports_user = "EALBORNO" 
-	        sale_note.order_origin = "Directo"       
-	        sale_note.order_remove = "Cliente"         
-	        sale_note.order_code = "44552"          
-	        sale_note.order_site = "2000"         
-	        sale_note.order_seller_code = "300"   
-	        sale_note.order_transport_code = "0"
-	        sale_note.order_credit_type = "CONTADO"   
-	        sale_note.order_discount_type = "XF"
-	        sale_note.order_state = 9
-	        sale_note.save
+			sale_note = nil
+            modulo = @sale_notes.length%5
+            if modulo == 0
+            	@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , bodya.to_json, {content_type: :json, accept: :json})
+                sale_note = Sale::Note.save_from_erp_sale_note (bodya.to_json) 
+            end
 
-	        sale_note_item = Sale::Note::Item.new
-	        sale_note_item.order_number = "PRUEBAOFERUS"+count+time               
-   			sale_note_item.order_item_line = 1           
-   			sale_note_item.domain  = "ITAKA"                  
-   			sale_note_item.product_identifier = "123761"         
-   			sale_note_item.product_unit_of_measurement = "PZ"
-   			sale_note_item.order_item_lot = 1          
-   			sale_note_item.order_item_list_price = 16308      
-   			sale_note_item.order_item_price  = -799092        
-   			sale_note_item.order_item_discount = 50
-   			sale_note_item.save 
+            if modulo == 1
+            	@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , bodyb.to_json, {content_type: :json, accept: :json})
+            	sale_note = Sale::Note.save_from_erp_sale_note (bodyb.to_json)
+            end
 
-   			@sale_note = sale_note       
+            if modulo == 2
+            	@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , bodyc.to_json, {content_type: :json, accept: :json})
+            	sale_note = Sale::Note.save_from_erp_sale_note (bodyc.to_json)
+            end
 
-		@arr =	 { :m => "Nota de venta ingresada exitosamente a ERP", :sn => @sale_note} 
+            if modulo == 3
+            	@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , bodyd.to_json, {content_type: :json, accept: :json})
+            	sale_note = Sale::Note.save_from_erp_sale_note (bodyd.to_json)
+            end
+
+            if modulo == 4
+            	@response = RestClient.post(Datum::API_BASE_URL_SALE_NOTE , bodye.to_json, {content_type: :json, accept: :json})
+            	sale_note = Sale::Note.save_from_erp_sale_note (bodye.to_json)
+            end
+			
+   			@sale_note = sale_note
+
+
+
+		@arr =	 { :m => "Nota de venta ingresada exitosamente a ERP"+modulo.to_s, :sn => @sale_note} 
 		
 		rescue => e
-		@arr =	 { :m => "Problemas con el servicio Web ERP", :sn => @sale_note} 
+		 @arr =	 { :m => "Problemas con el servicio Web ERP", :sn => @sale_note} 
 		end
 	end
 

@@ -40,17 +40,24 @@
            <p><strong>Fecha actualización:</strong><%=@sale_note.updated_at%></p>
               </p>
               <p>Ítems información</p>
-              <%item = Sale::Note::Item.find_by(order_number: @sale_note.order_number) %>
-                  <p><strong>Identificador cliente: </strong><%=item.order_number%>              
-            <p><strong>Línea de item: </strong><%=item.order_item_line%>           
-            <p><strong>Dominio: </strong><%=item.domain%>                   
-            <p><strong>Identificador de producto: </strong><%=item.product_identifier%>
-            <p><strong>Unidad de medida: </strong><%=item.product_unit_of_measurement%>
-            <p><strong>Cantidad: </strong><%=item.order_item_lot%>          
-            <p><strong>Precio lista: </strong><%=item.order_item_list_price %>     
-            <p><strong>Precio: </strong><%=item.order_item_price%>        
-            <p><strong>Descuento: </strong><%=item.order_item_discount%>
+              <%item = Sale::Note::Item.where(order_number: @sale_note.order_number) %>
+            
+            
+                <% item.each do |i|%>
+                <p><strong>Identificador cliente: </strong><%=i.order_number%>         
+                <p><strong>Línea de item: </strong><%=i.order_item_line%>           
+                <p><strong>Dominio: </strong><%=i.domain%>                   
+                <p><strong>Identificador de producto: </strong><%=i.product_identifier%>
+                <p><strong>Unidad de medida: </strong><%=i.product_unit_of_measurement%>
+                <p><strong>Cantidad: </strong><%=i.order_item_lot%>          
+                <p><strong>Precio lista: </strong><%=i.order_item_list_price %>     
+                <p><strong>Precio: </strong><%=i.order_item_price%>        
+                <p><strong>Descuento: </strong><%=i.order_item_discount%>
+                <%end%> 
+            
+
             </div>
+
             <div class="card-action center">
               <%= link_to sale_notes_path do %>
                         <i class="material-icons">arrow_back</i>
@@ -69,12 +76,19 @@
               <span>
               <% json = Sale::Note.find_by_erp(@sale_note.order_number)%>
               <%if json != nil%>
-              <% # sale_note = Sale::Note.get_client_from_json(json)%>
-              <p><strong>Identificador cliente: </strong><%=@sale_note.order_number%></p>         
-              <p><strong>Tipo de orden: </strong><%=@sale_note.order_type%></p>           
-              <p><strong>Dominio: </strong><%=@sale_note.domain%></p> 
+              <% sale_note = Sale::Note.get_sale_note_from_json(json)%>
+              <p><strong>Identificador cliente: </strong><%=sale_note.order_number%></p>         
+             <p><strong>Tipo de orden: </strong><%=sale_note.order_type%></p>           
+             <p><strong>Usuario creador nota: </strong><%=sale_note.order_create_user%></p>    
+             <p><strong>Usuario generador nota: </strong><%=sale_note.order_generate_user%></p>  
+             <p><strong>Usuario aprobador nota: </strong><%=sale_note.order_approves_user%></p>  
+             <p><strong>Usuario exportador nota: </strong><%=sale_note.order_exports_user%></p>
+             <p><strong>Código de Vendedor: </strong><%=sale_note.order_seller_code%></p>    
+             <p><strong>Tipo de crédito: </strong><%=sale_note.order_credit_type%></p>    
+             <p><strong>Tipo de descuento: </strong><%=sale_note.order_discount_type%></p>  
+             <p><strong>Estado nota: </strong><%=sale_note.order_state%></p>  
               <%else%>
-              <p><strong>Problemas con ERP</strong></p>
+              <strong>Problema con ERP</strong>
               <%end%>
               </span>
               </p>
